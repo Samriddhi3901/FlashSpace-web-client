@@ -1,6 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation, getAnimationClasses } from "@/hooks/use-scroll-animation";
 
 const TestimonialsSection = () => {
+  const isVisible = useScrollAnimation('testimonials');
+  
   const companies = [
     { name: "Addda 24/7", logo: "ADDDA 24/7" },
     { name: "Study IQ", logo: "STUDY IQ" },
@@ -57,12 +60,12 @@ const TestimonialsSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-header">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`}>
             <span className="gradient-text-accent">Trusted by Industry Leaders</span>
             <br />
             <span className="text-muted-foreground text-xl md:text-2xl font-content">Across India</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed font-content">
+          <p className={`text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed font-content ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
             Join thousands of successful businesses who chose FlashSpace to accelerate their growth 
             and establish their market presence with confidence.
           </p>
@@ -76,7 +79,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Company Logos Carousel */}
-        <div className="mb-12 overflow-hidden">
+        <div className={`mb-12 overflow-hidden ${getAnimationClasses(isVisible, 'fadeIn', 300)}`}>
           <div className="relative">
             {/* Gradient Overlays */}
             <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10"></div>
@@ -105,10 +108,10 @@ const TestimonialsSection = () => {
 
         {/* Client Testimonials */}
         <div className="text-center mb-8 mt-16">
-          <h3 className="text-xl font-bold mb-4 gradient-text-primary font-header">
+          <h3 className={`text-xl font-bold mb-4 gradient-text-primary font-header ${getAnimationClasses(isVisible, 'fadeInUp', 400)}`}>
             Great People Trust Us
           </h3>
-          <p className="text-muted-foreground font-content">
+          <p className={`text-muted-foreground font-content ${getAnimationClasses(isVisible, 'fadeInUp', 500)}`}>
             Real stories from real businesses who transformed their operations with FlashSpace
           </p>
         </div>
@@ -117,7 +120,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="bg-card border-border shadow-lg hover:shadow-xl hover-lift border-primary/20 hover:border-primary/40 transition-all duration-500"
+              className={`bg-card border-border shadow-lg hover:shadow-xl hover-lift border-primary/20 hover:border-primary/40 transition-all duration-500 ${getAnimationClasses(isVisible, 'fadeInUp', 600 + index * 100)}`}
             >
               <CardContent className="p-6">
                 {/* Quote */}
@@ -147,7 +150,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Stats */}
-        <Card className="bg-card border-border shadow-lg border-primary/20">
+        <Card className={`bg-card border-border shadow-lg border-primary/20 ${getAnimationClasses(isVisible, 'fadeInUp', 900)}`}>
             <CardContent className="p-6">
               <div className="grid grid-cols-3 gap-6 text-center">
               <div>

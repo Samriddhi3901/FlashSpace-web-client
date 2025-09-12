@@ -1,11 +1,46 @@
-import { Briefcase, Wifi, Coffee, Users, Calendar, Shield, Zap, Clock } from "lucide-react";
+import { Wifi, Coffee, Printer, Gamepad2, Car, Shield, ChevronDown, Users, Building, Phone, MapPin, Clock, Calendar } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import ServicesSidebar from "@/components/ServicesSidebar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const CoworkingSpace = () => {
+  const businessSolutions = [
+    {
+      label: "Virtual Office",
+      href: "/services/virtual-office",
+      icon: Building,
+      description: "Professional business address solutions"
+    },
+    {
+      label: "Coworking Space", 
+      href: "/services/coworking-space",
+      icon: Users,
+      description: "Flexible workspace solutions"
+    },
+    {
+      label: "On Demand",
+      href: "/services/on-demand", 
+      icon: Phone,
+      description: "Meeting rooms & services"
+    },
+    {
+      label: "Event Spaces",
+      href: "/services/event-spaces",
+      icon: MapPin,
+      description: "Premium event venues"
+    }
+  ];
+
+  const handleNavigation = (href: string) => {
+    window.location.href = href;
+  };
   const features = [
     {
       icon: <Wifi className="w-6 h-6" />,
@@ -44,17 +79,45 @@ const CoworkingSpace = () => {
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
-          <Link to="/" className="inline-flex items-center gap-2 text-gray-900 hover:text-accent transition-colors group">
-            <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
-          </Link>
+          <div className="flex items-center justify-between">
+            <Link to="/" className="inline-flex items-center gap-2 text-gray-900 hover:text-accent transition-colors group">
+              <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
+              Back to Home
+            </Link>
+            
+            {/* Business Solutions Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="text-sm text-gray-700 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-2 border-gray-300"
+                >
+                  Coworking Space
+                  <ChevronDown className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-64 bg-white border border-gray-200 shadow-lg">
+                {businessSolutions.map((solution) => (
+                  <DropdownMenuItem 
+                    key={solution.label}
+                    onClick={() => handleNavigation(solution.href)}
+                    className="cursor-pointer p-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <solution.icon className="w-4 h-4 mr-3 text-accent" />
+                    <div className="flex flex-col">
+                      <span className="font-medium text-gray-900">{solution.label}</span>
+                      <span className="text-xs text-gray-500">{solution.description}</span>
+                    </div>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <div className="flex">
-        <ServicesSidebar />
-        <main className="flex-1 p-8">
+      <main className="flex-1 p-8">
           <div className="max-w-5xl mx-auto">
             {/* Hero Section */}
             <div className="text-center mb-16">
@@ -106,8 +169,7 @@ const CoworkingSpace = () => {
           </div>
         </main>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
 export default CoworkingSpace;

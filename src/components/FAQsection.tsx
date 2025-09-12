@@ -19,9 +19,11 @@ import {
   Sparkles
 } from "lucide-react";
 import { useState } from "react";
+import { useScrollAnimation, getAnimationClasses } from "@/hooks/use-scroll-animation";
 
 const FAQSection = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const isVisible = useScrollAnimation('faq');
 
   const faqs = [
     {
@@ -106,19 +108,19 @@ const FAQSection = () => {
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in font-header">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`}>
             Everything You Need to Know
             <br />
             <span className="gradient-text-accent">FAQ</span>
           </h2>
-          <div className="flex items-center justify-center gap-2 text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '200ms' }}>
+          <div className={`flex items-center justify-center gap-2 text-xl text-muted-foreground max-w-3xl mx-auto ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
             <span>Get instant answers to the most common questions about our virtual office solutions and services.</span>
             <Sparkles className="w-6 h-6 text-accent animate-pulse" />
           </div>
         </div>
 
         {/* Search and Filter */}
-        <Card className="glass-card border-primary/20 mb-12 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <Card className={`glass-card border-primary/20 mb-12 shadow-xl hover:shadow-2xl transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 300)}`}>
           <CardHeader className="pb-4">
             <CardTitle className="text-center gradient-text-primary text-xl font-header">Find Your Answer</CardTitle>
           </CardHeader>
@@ -159,7 +161,7 @@ const FAQSection = () => {
         </Card>
 
         {/* FAQ Accordion */}
-        <Card className="glass-card border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <Card className={`glass-card border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 500)}`}>
           <CardContent className="p-0">
             {filteredFaqs.length > 0 ? (
               <Accordion type="single" collapsible className="w-full">
@@ -221,4 +223,4 @@ const FAQSection = () => {
   );
 };
 
-export default FAQSection;  
+export default FAQSection;

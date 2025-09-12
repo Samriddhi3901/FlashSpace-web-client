@@ -17,9 +17,11 @@ import {
   Youtube,
   Send
 } from "lucide-react";
+import { useScrollAnimation, getAnimationClasses } from "@/hooks/use-scroll-animation";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const isVisible = useScrollAnimation('footer');
 
   const services = [
     { name: "Virtual Office Solutions", icon: <Building className="w-4 h-4" /> },
@@ -57,12 +59,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer id="footer" className="bg-white border-t border-gray-200">
       <div className="container mx-auto px-6">
         {/* Main Footer Content */}
         <div className="py-12 grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="space-y-6">
+          <div className={`space-y-6 ${getAnimationClasses(isVisible, 'slideUp', 0)}`}>
             <div className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/6295cecd-7c61-4f7d-b1eb-3062cb798cce.png" 
@@ -108,7 +110,7 @@ const Footer = () => {
           </div>
 
           {/* VirtuHub Services */}
-          <div>
+          <div className={getAnimationClasses(isVisible, 'slideUp', 100)}>
             <h3 className="text-lg font-bold text-blue-600 mb-6 font-header">
               VirtuHub Services
             </h3>
@@ -132,7 +134,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className={getAnimationClasses(isVisible, 'slideUp', 200)}>
             <h3 className="text-lg font-bold text-blue-600 mb-6 font-header">
               Quick Links
             </h3>
@@ -151,7 +153,7 @@ const Footer = () => {
           </div>
 
           {/* Support & Contact */}
-          <div>
+          <div className={getAnimationClasses(isVisible, 'slideUp', 300)}>
             <h3 className="text-lg font-bold text-blue-600 mb-6 font-header">
               Support & Legal
             </h3>
@@ -174,7 +176,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="py-6 border-t border-gray-200">
+        <div className={`py-6 border-t border-gray-200 ${getAnimationClasses(isVisible, 'fadeIn', 400)}`}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <div className="text-center md:text-left">

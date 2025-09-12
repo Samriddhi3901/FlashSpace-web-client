@@ -22,9 +22,11 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation, getAnimationClasses } from "@/hooks/use-scroll-animation";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const isVisible = useScrollAnimation('contact');
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -98,12 +100,12 @@ const ContactSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in font-header">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`}>
             Ready to Transform Your Business?
             <br />
             <span className="gradient-text-accent">Let's Connect!</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '200ms' }}>
+          <p className={`text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
             Get started with FlashSpace today and experience the future of virtual office solutions. 
             Our team is ready to help you find the perfect solution for your business needs.
           </p>
@@ -119,7 +121,7 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
           {/* Contact Form */}
           <div className="w-full h-full">
-            <Card className="glass-card border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-accent/30 h-full">
+            <Card className={`glass-card border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-accent/30 h-full ${getAnimationClasses(isVisible, 'slideRight', 400)}`}>
               <CardHeader className="pb-6">
                 <CardTitle className="text-2xl gradient-text-primary flex items-center gap-3 font-header">
                   <Send className="w-8 h-8" />
@@ -234,7 +236,7 @@ const ContactSection = () => {
               {contactInfo.map((info, index) => (
                 <Card 
                   key={index}
-                  className="glass-card hover-lift bg-card border-primary/20 hover:border-accent/30 transition-all duration-500 cursor-pointer group shadow-lg hover:shadow-xl"
+                  className={`glass-card hover-lift bg-card border-primary/20 hover:border-accent/30 transition-all duration-500 cursor-pointer group shadow-lg hover:shadow-xl ${getAnimationClasses(isVisible, 'slideLeft', 400 + index * 100)}`}
                   onClick={() => window.open(info.href, '_blank')}
                 >
                   <CardContent className="p-8 text-center">

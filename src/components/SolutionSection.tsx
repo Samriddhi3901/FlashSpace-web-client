@@ -11,36 +11,39 @@ import {
   ChevronRight,
   Zap
 } from "lucide-react";
+import { useScrollAnimation, getAnimationClasses } from "@/hooks/use-scroll-animation";
 
 const SolutionsSection = () => {
+  const isVisible = useScrollAnimation('solutions');
+  
   const solutions = [
     {
       icon: <Building className="w-6 h-6 text-primary" />,
       title: "Virtual Office",
       description: "Professional business address with mail handling and call forwarding services",
       features: ["Prime Location Address", "GST Registration Support", "Mail Forwarding", "Call Management"],
-      path: "/services/virtual-office"
+      path: "/solutions/virtual-office"
     },
     {
       icon: <Briefcase className="w-6 h-6 text-primary" />,
       title: "Coworking Space",
       description: "Flexible workspace options with networking opportunities and premium amenities",
       features: ["Flexible Workspace", "Networking Events", "Premium Amenities", "24/7 Access"],
-      path: "/services/coworking-space"
+      path: "/solutions/coworking-space"
     },
     {
       icon: <Users className="w-6 h-6 text-primary" />,
       title: "On Demand",
       description: "On-demand meeting spaces and services with video conferencing facilities",
       features: ["Meeting Rooms", "Video Conferencing", "Presentation Tools", "Flexible Booking"],
-      path: "/services/on-demand"
+      path: "/solutions/on-demand"
     },
     {
       icon: <MapPin className="w-6 h-6 text-primary" />,
-      title: "Event Spaces",
-      description: "Premium event venues for corporate meetings, conferences and special occasions",
-      features: ["Event Venues", "Corporate Meetings", "Conference Facilities", "Catering Support"],
-      path: "/services/event-spaces"
+      title: "Business Setup",
+      description: "Complete business setup solutions including legal documentation and compliance support",
+      features: ["Legal Documentation", "Business Registration", "Compliance Support", "Tax Advisory"],
+      path: "/solutions/business-setup"
     },
   ];
 
@@ -56,12 +59,12 @@ const SolutionsSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in font-header">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`}>
             Complete Business Ecosystem
             <br />
             <span className="gradient-text-accent">at Your Fingertips</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-fade-in font-content" style={{ animationDelay: '200ms' }}>
+          <p className={`text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-content ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
             Transform your business operations with our comprehensive suite of virtual office solutions 
             designed to scale with your ambitions.
           </p>
@@ -79,9 +82,8 @@ const SolutionsSection = () => {
                 className={`
                   glass-card border-primary/20 hover:border-accent/30 shadow-lg hover:shadow-2xl 
                   group cursor-pointer transition-all duration-700 hover:scale-110 glow-primary hover:glow-accent
-                  animate-fade-in relative overflow-hidden h-full flex flex-col
+                  relative overflow-hidden h-full flex flex-col ${getAnimationClasses(isVisible, 'fadeInUp', index * 150)}
                 `}
-                style={{ animationDelay: `${index * 150}ms` }}
               >
                 {/* Dynamic Background Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -138,7 +140,7 @@ const SolutionsSection = () => {
         {/* Bottom CTA */}
         <div className="text-center">
           <Button 
-            className="btn-hero px-8 py-4 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            className={`btn-hero px-8 py-4 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 600)}`}
           >
             View All Solutions
           </Button>
