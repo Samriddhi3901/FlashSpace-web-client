@@ -187,10 +187,10 @@ const ContactSection = () => {
                 <div className="space-y-2">
                   <Label htmlFor="service">Service Interest</Label>
                   <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
-                    <SelectTrigger className="bg-secondary/50 border-primary/20 focus:border-primary/40">
+                    <SelectTrigger className="bg-white border-primary/20 focus:border-primary/40">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white border border-primary/20 shadow-lg">
                       <SelectItem value="virtual-office">Virtual Office Solutions</SelectItem>
                       <SelectItem value="business-registration">Business Registration</SelectItem>
                       <SelectItem value="mail-management">Mail Management</SelectItem>

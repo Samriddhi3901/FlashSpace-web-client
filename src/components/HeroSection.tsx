@@ -10,9 +10,9 @@ import VideoBackground from "./VideoBackground";
 import { cn } from "@/lib/utils";
 
 const HeroSection = () => {
-  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCity, setSelectedCity] = useState("Delhi"); // Default Delhi selected
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedService, setSelectedService] = useState("");
+  const [selectedService, setSelectedService] = useState("Virtual Spaces"); 
   const [isLocationOpen, setIsLocationOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isSolutionOpen, setIsSolutionOpen] = useState(false);
@@ -24,10 +24,10 @@ const HeroSection = () => {
   ];
 
   const services = [
-    "Virtual Office", 
-    "Managed Offices", "Cabins", "Open Desk", "Hot Desk",
-    "Meeting Rooms", "Event Spaces", "Private Offices",
-    "On Demand Solutions"
+    "Virtual Spaces", 
+    "Coworking Spaces", 
+    "On Demand",
+    "Business Setup"
   ];
 
   // Location recommendations based on selected city
@@ -65,32 +65,37 @@ const HeroSection = () => {
   };
 
   const handleSearch = () => {
-    if (selectedCity && selectedService) {
-      // Convert service to route format
-      const serviceRoutes = {
-        "virtual office": "/solutions/virtual-office",
-        "managed offices": "/solutions/coworking-space", 
-        "cabins": "/solutions/coworking-space",
-        "open desk": "/solutions/coworking-space",
-        "hot desk": "/solutions/coworking-space",
-        "meeting rooms": "/solutions/on-demand",
-        "event spaces": "/solutions/on-demand",
-        "private offices": "/solutions/coworking-space",
-        "on demand solutions": "/solutions/on-demand"
-      };
-
-      const serviceKey = selectedService.toLowerCase();
-      const route = serviceRoutes[serviceKey] || "/solutions/virtual-office";
-      
-      // Add query parameters for filtering
-      const params = new URLSearchParams();
-      params.set('city', selectedCity);
-      if (searchQuery) params.set('location', searchQuery);
-      
-      window.location.href = `${route}?${params.toString()}`;
-    } else {
-      console.log("Please select city and service");
+    // Only city is mandatory now
+    if (!selectedCity) {
+      alert("Please select a city");
+      return;
     }
+    
+    // Simplified routing based on service selection
+    let route = "/city-listing"; // Default to city listings
+    
+    if (selectedService) {
+      const serviceRoutes = {
+        "virtual spaces": "/services/virtual-office",
+        "coworking spaces": "/services/coworking-space",
+        "on demand": "/services/on-demand",
+        "business setup": "/services/virtual-office" // Using virtual office for now
+      };
+      
+      const serviceKey = selectedService.toLowerCase();
+      route = serviceRoutes[serviceKey] || "/city-listing";
+    }
+    
+    // Add query parameters for filtering
+    const params = new URLSearchParams();
+    params.set('city', selectedCity.toLowerCase().replace(/\s+/g, '-')); // Convert "New Delhi" to "new-delhi"
+    if (searchQuery) params.set('location', searchQuery);
+    if (selectedService) params.set('service', selectedService);
+    
+    // Navigate using React Router instead of window.location
+    const url = `${route}?${params.toString()}`;
+    console.log('Navigating to:', url); // Debug log
+    window.location.href = url;
   };
 
   return (
@@ -125,40 +130,43 @@ const HeroSection = () => {
                       variant="ghost"
                       role="combobox"
                       aria-expanded={isLocationOpen}
-                      className="justify-between p-0 h-auto font-normal border-0 bg-transparent hover:bg-transparent"
+                      className="justify-between p-0 h-auto font-normal border-0 bg-transparent hover:bg-transparent cursor-pointer"
                     >
                       {selectedCity || "Select City"}
                       <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-[200px] p-0">
-                    <Command>
-                      <CommandInput placeholder="Search city..." />
-                      <CommandList>
-                        <CommandEmpty>No city found.</CommandEmpty>
-                        <CommandGroup>
-                          {cities.map((city) => (
-                            <CommandItem
-                              key={city}
-                              value={city}
-                              onSelect={(currentValue) => {
-                                setSelectedCity(currentValue === selectedCity ? "" : city);
-                                setIsLocationOpen(false);
-                                setSearchQuery(""); // Reset search when city changes
-                              }}
-                            >
-                              <Check
-                                className={cn(
-                                  "mr-2 h-4 w-4",
-                                  selectedCity === city ? "opacity-100" : "opacity-0"
-                                )}
-                              />
-                              {city}
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
-                      </CommandList>
-                    </Command>
+                    <div className="bg-white border border-primary/20 shadow-lg rounded-lg">
+                      <Command>
+                        <CommandInput placeholder="Search city..." />
+                        <CommandList>
+                          <CommandEmpty>No city found.</CommandEmpty>
+                          <CommandGroup>
+                            {cities.map((city) => (
+                              <CommandItem
+                                key={city}
+                                value={city}
+                                onSelect={(currentValue) => {
+                                  setSelectedCity(currentValue === selectedCity ? "" : city);
+                                  setIsLocationOpen(false);
+                                  setSearchQuery(""); // Reset search when city changes
+                                }}
+                                className="cursor-pointer"
+                              >
+                                <Check
+                                  className={cn(
+                                    "mr-2 h-4 w-4",
+                                    selectedCity === city ? "opacity-100" : "opacity-0"
+                                  )}
+                                />
+                                {city}
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </div>
                   </PopoverContent>
                 </Popover>
               </div>
@@ -244,39 +252,42 @@ const HeroSection = () => {
                       variant="ghost"
                       role="combobox"
                       aria-expanded={isSolutionOpen}
-                      className="justify-between p-0 h-auto font-normal border-0 bg-transparent hover:bg-transparent"
+                      className="justify-between p-0 h-auto font-normal border-0 bg-transparent hover:bg-transparent cursor-pointer"
                     >
                       {selectedService || "Select Solution"}
                       <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-[200px] p-0">
-                    <Command>
-                      <CommandInput placeholder="Search solution..." />
-                      <CommandList>
-                        <CommandEmpty>No solution found.</CommandEmpty>
-                        <CommandGroup>
-                          {services.map((service) => (
-                            <CommandItem
-                              key={service}
-                              value={service}
-                              onSelect={(currentValue) => {
-                                setSelectedService(currentValue === selectedService ? "" : service);
-                                setIsSolutionOpen(false);
-                              }}
-                            >
-                              <Check
-                                className={cn(
-                                  "mr-2 h-4 w-4",
-                                  selectedService === service ? "opacity-100" : "opacity-0"
-                                )}
-                              />
-                              {service}
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
-                      </CommandList>
-                    </Command>
+                    <div className="bg-white border border-primary/20 shadow-lg rounded-lg">
+                      <Command>
+                        <CommandInput placeholder="Search solution..." />
+                        <CommandList>
+                          <CommandEmpty>No solution found.</CommandEmpty>
+                          <CommandGroup>
+                            {services.map((service) => (
+                              <CommandItem
+                                key={service}
+                                value={service}
+                                onSelect={(currentValue) => {
+                                  setSelectedService(currentValue === selectedService ? "" : service);
+                                  setIsSolutionOpen(false);
+                                }}
+                                className="cursor-pointer"
+                              >
+                                <Check
+                                  className={cn(
+                                    "mr-2 h-4 w-4",
+                                    selectedService === service ? "opacity-100" : "opacity-0"
+                                  )}
+                                />
+                                {service}
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </div>
                   </PopoverContent>
                 </Popover>
               </div>
@@ -284,7 +295,7 @@ const HeroSection = () => {
               {/* Search Button */}
               <Button 
                 onClick={handleSearch}
-                disabled={!selectedCity || !selectedService}
+                disabled={!selectedCity} // Only city is required
                 className="bg-black hover:bg-gray-800 text-white rounded-full px-12 py-6 h-auto font-medium disabled:opacity-50"
               >
                 Search

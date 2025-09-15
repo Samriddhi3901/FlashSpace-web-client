@@ -1,0 +1,13 @@
+[
+  {"name": "Connaught Place Virtual Office", "src": "/card-connaught-place.jpg"},
+  {"name": "Gurgaon Business Center", "src": "/card-gurgaon.jpg"},
+  {"name": "Nehru Place Office", "src": "/card-nehru-place.jpg"},
+  {"name": "BKC Premium Office", "src": "/card-bkc.jpg"},
+  {"name": "Lower Parel Business", "src": "/card-lower-parel.jpg"},
+  {"name": "Andheri East Hub", "src": "/card-andheri.jpg"},
+  {"name": "Koramangala Tech Office", "src": "/card-koramangala.jpg"},
+  {"name": "Whitefield Business Center", "src": "/card-whitefield.jpg"},
+  {"name": "Electronic City Office", "src": "/card-electronic-city.jpg"},
+  {"name": "Hinjewadi IT Park Office", "src": "/card-hinjewadi.jpg"},
+  {"name": "Koregaon Park Center", "src": "/card-koregaon-park.jpg"}
+]

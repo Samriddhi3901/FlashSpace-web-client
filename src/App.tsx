@@ -13,11 +13,12 @@ import VirtualOffice from "./pages/services/VirtualOffice";
 import CoworkingSpace from "./pages/services/CoworkingSpace";
 import OnDemand from "./pages/services/OnDemand";
 import EventSpaces from "./pages/services/EventSpaces";
-import VirtualOfficeSearch from "./pages/solutions/VirtualOfficeSearch";
-import CoworkingSpaceSearch from "./pages/solutions/CoworkingSpaceSearch";
-import OnDemandSearch from "./pages/solutions/OnDemandSearch";
-import BusinessSetupSearch from "./pages/solutions/BusinessSetupSearch";
-import SearchResults from "./pages/SearchResult";
+import BusinessSetup from "./pages/services/BusinessSetup";
+// import VirtualOfficeSearch from "./pages/solutions/VirtualOfficeSearch";
+// import CoworkingSpaceSearch from "./pages/solutions/CoworkingSpaceSearch";
+// import OnDemandSearch from "./pages/solutions/OnDemandSearch";
+// import BusinessSetupSearch from "./pages/solutions/BusinessSetupSearch";
+// import SearchResults from "./pages/SearchResult";
 
 const queryClient = new QueryClient();
 
@@ -34,11 +35,13 @@ const App = () => (
           <Route path="/services/coworking-space" element={<CoworkingSpace />} />
           <Route path="/services/on-demand" element={<OnDemand />} />
           <Route path="/services/event-spaces" element={<EventSpaces />} />
-          <Route path="/solutions/virtual-office" element={<VirtualOfficeSearch />} />
+          <Route path="/services/business-setup" element={<BusinessSetup />} />
+          <Route path="/city-listing" element={<CityListing />} />
+          {/* <Route path="/solutions/virtual-office" element={<VirtualOfficeSearch />} />
           <Route path="/solutions/coworking-space" element={<CoworkingSpaceSearch />} />
           <Route path="/solutions/on-demand" element={<OnDemandSearch />} />
           <Route path="/solutions/business-setup" element={<BusinessSetupSearch />} />
-          <Route path="/search-results" element={<SearchResults />} />
+          <Route path="/search-results" element={<SearchResults />} /> */}
           <Route path="/list-your-space" element={<ListYourSpace />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="/city/:cityId" element={<CityListing />} />

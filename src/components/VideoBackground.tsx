@@ -8,11 +8,11 @@ const VideoBackground = () => {
 
   // Professional office images slideshow
   const backgroundImages = [
-    "/lovable-uploads/1880c486-fd35-40fb-bd96-35bc9be21cfd.png", // Modern dark office with LED lighting
-    "/lovable-uploads/81b34a7c-74b6-4999-b549-e53aac7f6a16.png", // Dark meeting room with plants
-    "/lovable-uploads/8c7281e3-7a9c-40ab-be77-442b12d1ed61.png", // Dark workspace setup
-    "/lovable-uploads/49fbe989-fb43-4562-b816-006c4fe48ecd.png", // Evening office with city view
-    "/lovable-uploads/df6fd2c0-d34a-47ac-b9ad-3d8175a7ecf6.png"  // Modern conference room
+    "https://id-preview--64fc9692-b7e7-4f25-852e-a5069b0a3c34.lovable.app/lovable-uploads/1880c486-fd35-40fb-bd96-35bc9be21cfd.png", // Modern dark office with LED lighting
+    "https://id-preview--64fc9692-b7e7-4f25-852e-a5069b0a3c34.lovable.app/lovable-uploads/1880c486-fd35-40fb-bd96-35bc9be21cfd.png", // Dark meeting room with plants
+    "https://id-preview--64fc9692-b7e7-4f25-852e-a5069b0a3c34.lovable.app/lovable-uploads/81b34a7c-74b6-4999-b549-e53aac7f6a16.png", // Dark workspace setup
+    "https://id-preview--64fc9692-b7e7-4f25-852e-a5069b0a3c34.lovable.app/lovable-uploads/8c7281e3-7a9c-40ab-be77-442b12d1ed61.png", // Evening office with city view
+    "https://id-preview--64fc9692-b7e7-4f25-852e-a5069b0a3c34.lovable.app/lovable-uploads/49fbe989-fb43-4562-b816-006c4fe48ecd.png"  // Modern conference room
   ];
 
   // Preload images
