@@ -9,50 +9,25 @@ import PropertyCard from "@/components/PropertyCard";
 import { getCityById } from "@/data/cityData";
 
 // Import monument images
-import delhiIndiaGate from "@/assets/image.png";
-import mumbaiGateway from "@/assets/image.png";
-import bangalorePalace from "@/assets/image.png";
-import hyderabadCharminar from "@/assets/image.png";
-import chennaiMarina from "@/assets/image.png";
-import kolkataVictoria from "@/assets/image.png";
-import puneShaniwar from "@/assets/image.png";
-import ahmedabadAshram from "@/assets/image.png";
-import jaipurHawa from "@/assets/image.png";
-import suratCastle from "@/assets/image.png";
-import lucknowImambara from "@/assets/image.png";
+// import delhiIndiaGate from "@/assets/image.png";
+// import mumbaiGateway from "@/assets/image.png";
+// import bangalorePalace from "@/assets/image.png";
+// import hyderabadCharminar from "@/assets/image.png";
+// import chennaiMarina from "@/assets/image.png";
+// import kolkataVictoria from "@/assets/image.png";
+// import puneShaniwar from "@/assets/image.png";
+// import ahmedabadAshram from "@/assets/image.png";
+// import jaipurHawa from "@/assets/image.png";
+// import suratCastle from "@/assets/image.png";
+// import lucknowImambara from "@/assets/image.png";
 
 const CityListing = () => {
   const { cityId } = useParams<{ cityId: string }>();
   const city = cityId ? getCityById(cityId) : null;
 
-  // Map city IDs to imported images
-  const getHeroImage = (cityId: string) => {
-    switch (cityId) {
-      case 'delhi':
-        return delhiIndiaGate;
-      case 'mumbai':
-        return mumbaiGateway;
-      case 'bangalore':
-        return bangalorePalace;
-      case 'hyderabad':
-        return hyderabadCharminar;
-      case 'chennai':
-        return chennaiMarina;
-      case 'kolkata':
-        return kolkataVictoria;
-      case 'pune':
-        return puneShaniwar;
-      case 'ahmedabad':
-        return ahmedabadAshram;
-      case 'jaipur':
-        return jaipurHawa;
-      case 'surat':
-        return suratCastle;
-      case 'lucknow':
-        return lucknowImambara;
-      default:
-        return city?.heroImage || '';
-    }
+  // Resolve hero image; fallback to city's provided heroImage or placeholder
+  const getHeroImage = () => {
+    return city?.heroImage || "/placeholder.svg";
   };
 
   if (!city) {
@@ -83,7 +58,7 @@ const CityListing = () => {
         {/* Background Image with Enhanced Overlay */}
         <div className="absolute inset-0">
           <img 
-            src={getHeroImage(city.id)} 
+            src={getHeroImage()} 
             alt={`${city.name} - Famous Monument`}
             className="w-full h-full object-cover scale-105 animate-slow-zoom"
           />

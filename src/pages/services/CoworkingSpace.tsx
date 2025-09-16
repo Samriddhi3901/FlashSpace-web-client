@@ -179,7 +179,7 @@ const CoworkingSpace = () => {
 
             {/* Hero Section */}
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                 Modern <span className="gradient-text-accent">Coworking Spaces</span>
                 {selectedCity && (
                   <span className="block text-2xl md:text-3xl mt-2 text-primary">
@@ -202,6 +202,88 @@ const CoworkingSpace = () => {
                 </Button>
               </div>
             </div>
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+                Available Coworking Spaces in {selectedCity}
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {citySpaces.map((space) => {
+                  // Match coworking space image
+                  let imageSrc = "";
+                  switch (space.name) {
+                    case "Connaught Place Virtual Office": imageSrc = "https://shorturl.at/Fyr6o"; break;
+                case "Gurgaon Business Center": imageSrc = "https://shorturl.at/LdEgA"; break;
+                case "Nehru Place Office": imageSrc = "https://shorturl.at/S4XWY"; break;
+                case "BKC Premium Office": imageSrc = "https://shorturl.at/NUpzM"; break;
+                case "Lower Parel Business": imageSrc = "https://shorturl.at/LdEgA"; break;
+                case "Andheri East Hub": imageSrc = "https://shorturl.at/S4XWY"; break;
+                case "Koramangala Tech Office": imageSrc = "https://shorturl.at/LdEgA"; break;
+                case "Whitefield Business Center": imageSrc = "https://shorturl.at/Fyr6o"; break;
+                case "Electronic City Office": imageSrc = "https://shorturl.at/NUpzM"; break;
+                case "Hinjewadi IT Park Office": imageSrc = "https://shorturl.at/Fyr6o"; break;
+                case "Koregaon Park Center": imageSrc = "https://shorturl.at/Fyr6o"; break;
+                case "Khan Market Business Hub": imageSrc = "https://shorturl.at/NUpzM"; break;
+                case "Saket Corporate Center": imageSrc = "https://shorturl.at/LdEgA"; break;
+                case "Lajpat Nagar Virtual Office": imageSrc = "https://shorturl.at/S4XWY"; break;
+                case "Worli Business District": imageSrc = "https://shorturl.at/Fyr6o"; break;
+                case "Fort Commercial Center": imageSrc = "https://shorturl.at/NUpzM"; break;
+                case "Indiranagar Corporate Hub": imageSrc = "https://shorturl.at/LdEgA"; break;
+                case "HSR Layout Virtual Office": imageSrc = "https://shorturl.at/S4XWY"; break;
+                case "Baner Business Hub": imageSrc = "https://shorturl.at/Fyr6o"; break;
+                case "Kharadi Tech Center": imageSrc = "https://shorturl.at/NUpzM"; break;
+                default: imageSrc = "/placeholder.svg";
+                  }
+                  return (
+                    <Card key={space.id} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover-lift border border-gray-200">
+                      <CardHeader>
+                        <img src={imageSrc} alt={space.name} className="w-full h-40 object-cover rounded-lg mb-4" />
+                        <div className="flex justify-between items-start mb-2">
+                          <CardTitle className="text-xl text-gray-900 font-semibold">
+                            {space.name}
+                          </CardTitle>
+                          <div className="flex items-center gap-1 bg-green-100 px-2 py-1 rounded">
+                            <Clock className="w-4 h-4 text-green-600" />
+                            <span className="text-green-600 font-medium text-sm">{space.rating}</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-600 mb-2">
+                          <MapPin className="w-4 h-4" />
+                          <span className="text-sm">{space.address}</span>
+                        </div>
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-medium">
+                            {space.type}
+                          </div>
+                        </div>
+                        <div className="text-2xl font-bold text-primary mb-3">
+                          {space.price}
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-2 mb-4">
+                          {space.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
+                              <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
+                              <span>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="flex gap-2">
+                          <Button className="flex-1 btn-hero">
+                            Book Tour
+                          </Button>
+                          <Button variant="outline" className="flex-1 text-primary border-primary hover:bg-primary/5">
+                            View Details
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </div>
+            
 
             {/* Features Grid */}
             <div className="mb-16">
@@ -231,7 +313,7 @@ const CoworkingSpace = () => {
             </div>
 
             {/* Coworking Space Listings */}
-            <div className="mb-16">
+            {/* <div className="mb-16">
               <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
                 Available Coworking Spaces in {selectedCity}
               </h2>
@@ -302,7 +384,7 @@ const CoworkingSpace = () => {
                   );
                 })}
               </div>
-            </div>
+            </div> */}
           </div>
         </main>
       </div>
