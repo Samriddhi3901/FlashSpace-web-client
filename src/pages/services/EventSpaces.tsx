@@ -1,4 +1,4 @@
-import { Users, MapPin, Calendar, Utensils, Music, Camera, ChevronDown, Building, Phone, Award, Shield, Search, Star, CheckCircle, Filter, Grid3X3, List } from "lucide-react";
+import { Building, MapPin, Mail, Phone, FileText, CheckCircle, Star, Users, Award, ChevronDown, Filter, Grid3X3, List, Search, Calendar, Utensils, Camera, Music, Shield } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -11,22 +11,32 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { 
+  City, 
+  BusinessSolution, 
+  EventSpaceItem, 
+  EventSpaceCityKey, 
+  EventSpacesByCity, 
+  ServiceItem, 
+  ViewMode, 
+  SortBy 
+} from "@/types/services";
 
 const EventSpaces = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [selectedCity, setSelectedCity] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [viewMode, setViewMode] = useState("grid");
-  const [sortBy, setSortBy] = useState("popularity");
-  const [selectedArea, setSelectedArea] = useState("all");
-  const [selectedType, setSelectedType] = useState("all");
-  const [searchCity, setSearchCity] = useState("");
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [selectedLocation, setSelectedLocation] = useState<string>("");
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [sortBy, setSortBy] = useState<SortBy>("popularity");
+  const [selectedArea, setSelectedArea] = useState<string>("all");
+  const [selectedType, setSelectedType] = useState<string>("all");
+  const [searchCity, setSearchCity] = useState<string>("");
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
+  const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
 
   // Available cities for search
-  const availableCities = [
+  const availableCities: City[] = [
     { name: "Delhi", key: "delhi" },
     { name: "Mumbai", key: "mumbai" },
     { name: "Bangalore", key: "bangalore" },
@@ -49,12 +59,12 @@ const EventSpaces = () => {
   }, [searchParams]);
 
   // Filter cities based on search input
-  const filteredCities = availableCities.filter(city =>
+  const filteredCities: City[] = availableCities.filter(city =>
     city.name.toLowerCase().includes(searchCity.toLowerCase())
   );
 
   // Handle city search
-  const handleCitySearch = (cityName: string) => {
+  const handleCitySearch = (cityName: string): void => {
     setSearchCity(cityName);
     setSelectedCity(cityName);
     setShowSuggestions(false);
@@ -66,32 +76,32 @@ const EventSpaces = () => {
   };
 
   // Handle search input change
-  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchCity(e.target.value);
     setShowSuggestions(true);
   };
 
   // Handle search input focus
-  const handleSearchFocus = () => {
+  const handleSearchFocus = (): void => {
     setIsSearchFocused(true);
     setShowSuggestions(true);
   };
 
   // Handle search input blur
-  const handleSearchBlur = () => {
+  const handleSearchBlur = (): void => {
     setIsSearchFocused(false);
     setTimeout(() => setShowSuggestions(false), 200);
   };
 
   // Handle search form submit
-  const handleSearchSubmit = (e: React.FormEvent) => {
+  const handleSearchSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     if (searchCity.trim()) {
       handleCitySearch(searchCity.trim());
     }
   };
 
-  const businessSolutions = [
+  const businessSolutions: BusinessSolution[] = [
     {
       label: "Virtual Office",
       href: "/services/virtual-office",
@@ -118,11 +128,11 @@ const EventSpaces = () => {
     }
   ];
 
-  const handleNavigation = (href: string) => {
+  const handleNavigation = (href: string): void => {
     window.location.href = href;
   };
 
-  const services = [
+  const services: ServiceItem[] = [
     {
       icon: <Calendar className="w-6 h-6" />,
       title: "Event Planning",
@@ -156,7 +166,7 @@ const EventSpaces = () => {
   ];
 
   // Mock data for event spaces by city
-  const mockEventSpaces = {
+  const mockEventSpaces: EventSpacesByCity = {
     delhi: [
       { id: 1, name: "Grand Imperial Hall", address: "Connaught Place, New Delhi", price: "₹50,000/day", originalPrice: "₹65,000", rating: 4.8, reviews: 156, type: "Conference Hall", capacity: "500-800", features: ["Premium AV Setup", "Catering Kitchen", "VIP Lounge", "Parking"], area: "Connaught Place", availability: "Available Now", popular: true },
       { id: 2, name: "Tech Summit Center", address: "Gurgaon Cyber Hub", price: "₹75,000/day", originalPrice: "₹95,000", rating: 4.9, reviews: 234, type: "Convention Center", capacity: "1000-1500", features: ["Latest Tech", "Multiple Halls", "Exhibition Space", "Hospitality Suite"], area: "Gurgaon", availability: "Available Now", popular: true },
@@ -185,7 +195,7 @@ const EventSpaces = () => {
   if (["mumbai", "bombay"].includes(cityKey)) cityKey = "mumbai";
   if (["bangalore", "bengaluru"].includes(cityKey)) cityKey = "bangalore";
   if (["pune", "punecity"].includes(cityKey)) cityKey = "pune";
-  const citySpaces = mockEventSpaces[cityKey as keyof typeof mockEventSpaces] || mockEventSpaces.delhi;
+  const citySpaces = mockEventSpaces[cityKey as EventSpaceCityKey] || mockEventSpaces.delhi;
 
   // Get unique areas and types for filtering
   const areas = [...new Set(citySpaces.map(space => space.area))];

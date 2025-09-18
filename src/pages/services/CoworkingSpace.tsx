@@ -1,4 +1,4 @@
-import { Wifi, Coffee, Printer, Gamepad2, Car, Shield, ChevronDown, Users, Building, Phone, MapPin, Clock, Calendar, Filter, Grid3X3, List, Search, Star, CheckCircle } from "lucide-react";
+import { Building, MapPin, Mail, Phone, FileText, CheckCircle, Star, Users, Award, ChevronDown, Filter, Grid3X3, List, Search, Wifi, Coffee, Calendar, Shield, Zap, Gamepad2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -11,22 +11,31 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { 
+  City, 
+  BusinessSolution, 
+  CoworkingSpaceItem, 
+  CoworkingSpaceCityKey, 
+  CoworkingSpacesByCity, 
+  ViewMode, 
+  SortBy 
+} from "@/types/services";
 
 const CoworkingSpace = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [selectedCity, setSelectedCity] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [viewMode, setViewMode] = useState("grid");
-  const [sortBy, setSortBy] = useState("popularity");
-  const [selectedArea, setSelectedArea] = useState("all");
-  const [selectedType, setSelectedType] = useState("all");
-  const [searchCity, setSearchCity] = useState("");
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [selectedLocation, setSelectedLocation] = useState<string>("");
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [sortBy, setSortBy] = useState<SortBy>("popularity");
+  const [selectedArea, setSelectedArea] = useState<string>("all");
+  const [selectedType, setSelectedType] = useState<string>("all");
+  const [searchCity, setSearchCity] = useState<string>("");
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
+  const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
 
   // Available cities for search
-  const availableCities = [
+  const availableCities: City[] = [
     { name: "Delhi", key: "delhi" },
     { name: "Mumbai", key: "mumbai" },
     { name: "Bangalore", key: "bangalore" },
@@ -49,12 +58,12 @@ const CoworkingSpace = () => {
   }, [searchParams]);
 
   // Filter cities based on search input
-  const filteredCities = availableCities.filter(city =>
+  const filteredCities: City[] = availableCities.filter(city =>
     city.name.toLowerCase().includes(searchCity.toLowerCase())
   );
 
   // Handle city search
-  const handleCitySearch = (cityName: string) => {
+  const handleCitySearch = (cityName: string): void => {
     setSearchCity(cityName);
     setSelectedCity(cityName);
     setShowSuggestions(false);
@@ -66,32 +75,32 @@ const CoworkingSpace = () => {
   };
 
   // Handle search input change
-  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchCity(e.target.value);
     setShowSuggestions(true);
   };
 
   // Handle search input focus
-  const handleSearchFocus = () => {
+  const handleSearchFocus = (): void => {
     setIsSearchFocused(true);
     setShowSuggestions(true);
   };
 
   // Handle search input blur
-  const handleSearchBlur = () => {
+  const handleSearchBlur = (): void => {
     setIsSearchFocused(false);
     setTimeout(() => setShowSuggestions(false), 200);
   };
 
   // Handle search form submit
-  const handleSearchSubmit = (e: React.FormEvent) => {
+  const handleSearchSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     if (searchCity.trim()) {
       handleCitySearch(searchCity.trim());
     }
   };
 
-  const businessSolutions = [
+  const businessSolutions: BusinessSolution[] = [
     {
       label: "Virtual Office",
       href: "/services/virtual-office",
@@ -118,12 +127,12 @@ const CoworkingSpace = () => {
     }
   ];
 
-  const handleNavigation = (href: string) => {
+  const handleNavigation = (href: string): void => {
     window.location.href = href;
   };
 
   // Enhanced mock data for coworking spaces by city
-  const mockCoworkingSpaces = {
+  const mockCoworkingSpaces: CoworkingSpacesByCity = {
     delhi: [
       { id: 1, name: "WeWork Connaught Place", address: "Connaught Place, New Delhi", price: "₹15,000/month", originalPrice: "₹18,000", rating: 4.8, reviews: 245, type: "Hot Desk", features: ["High-Speed WiFi", "Meeting Rooms", "Coffee Bar", "24/7 Access"], area: "Connaught Place", availability: "Available Now", popular: true },
       { id: 2, name: "IndiQube Gurgaon", address: "DLF Cyber City, Gurgaon", price: "₹18,000/month", originalPrice: "₹22,000", rating: 4.7, reviews: 189, type: "Dedicated Desk", features: ["Private Cabin Option", "Parking", "Event Space", "Cafeteria"], area: "Gurgaon", availability: "Available Now", popular: false },
@@ -160,7 +169,7 @@ const CoworkingSpace = () => {
   if (["mumbai", "bombay"].includes(cityKey)) cityKey = "mumbai";
   if (["bangalore", "bengaluru"].includes(cityKey)) cityKey = "bangalore";
   if (["pune", "punecity"].includes(cityKey)) cityKey = "pune";
-  const citySpaces = mockCoworkingSpaces[cityKey as keyof typeof mockCoworkingSpaces] || mockCoworkingSpaces.delhi;
+  const citySpaces = mockCoworkingSpaces[cityKey as CoworkingSpaceCityKey] || mockCoworkingSpaces.delhi;
 
   // Get unique areas and types for filtering
   const areas = [...new Set(citySpaces.map(space => space.area))];

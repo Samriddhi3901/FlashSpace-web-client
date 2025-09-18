@@ -11,22 +11,31 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { 
+  City, 
+  BusinessSolution, 
+  VirtualOfficeItem, 
+  VirtualOfficeCityKey, 
+  VirtualOfficesByCity, 
+  ViewMode, 
+  SortBy 
+} from "@/types/services";
 
 const VirtualOffice = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [selectedCity, setSelectedCity] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [viewMode, setViewMode] = useState("grid");
-  const [sortBy, setSortBy] = useState("popularity");
-  const [selectedArea, setSelectedArea] = useState("all");
-  const [selectedServices, setSelectedServices] = useState("all");
-  const [searchCity, setSearchCity] = useState("");
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [selectedLocation, setSelectedLocation] = useState<string>("");
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [sortBy, setSortBy] = useState<SortBy>("popularity");
+  const [selectedArea, setSelectedArea] = useState<string>("all");
+  const [selectedServices, setSelectedServices] = useState<string>("all");
+  const [searchCity, setSearchCity] = useState<string>("");
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
+  const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
 
   // Available cities for search
-  const availableCities = [
+  const availableCities: City[] = [
     { name: "Delhi", key: "delhi" },
     { name: "Mumbai", key: "mumbai" },
     { name: "Bangalore", key: "bangalore" },
@@ -49,12 +58,12 @@ const VirtualOffice = () => {
   }, [searchParams]);
 
   // Filter cities based on search input
-  const filteredCities = availableCities.filter(city =>
+  const filteredCities: City[] = availableCities.filter(city =>
     city.name.toLowerCase().includes(searchCity.toLowerCase())
   );
 
   // Handle city search
-  const handleCitySearch = (cityName: string) => {
+  const handleCitySearch = (cityName: string): void => {
     setSearchCity(cityName);
     setSelectedCity(cityName);
     setShowSuggestions(false);
@@ -66,32 +75,32 @@ const VirtualOffice = () => {
   };
 
   // Handle search input change
-  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchCity(e.target.value);
     setShowSuggestions(true);
   };
 
   // Handle search input focus
-  const handleSearchFocus = () => {
+  const handleSearchFocus = (): void => {
     setIsSearchFocused(true);
     setShowSuggestions(true);
   };
 
   // Handle search input blur
-  const handleSearchBlur = () => {
+  const handleSearchBlur = (): void => {
     setIsSearchFocused(false);
     setTimeout(() => setShowSuggestions(false), 200);
   };
 
   // Handle search form submit
-  const handleSearchSubmit = (e: React.FormEvent) => {
+  const handleSearchSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     if (searchCity.trim()) {
       handleCitySearch(searchCity.trim());
     }
   };
 
-  const businessSolutions = [
+  const businessSolutions: BusinessSolution[] = [
     {
       label: "Virtual Office",
       href: "/services/virtual-office",
@@ -118,12 +127,12 @@ const VirtualOffice = () => {
     }
   ];
 
-  const handleNavigation = (href: string) => {
+  const handleNavigation = (href: string): void => {
     window.location.href = href;
   };
 
   // Mock data for virtual offices by city
-  const mockVirtualOffices = {
+  const mockVirtualOffices: VirtualOfficesByCity = {
     delhi: [
       { id: 1, name: "Connaught Place Virtual Office", address: "CP Block, New Delhi", price: "₹999/month", originalPrice: "₹1,299", rating: 4.8, reviews: 156, features: ["Prime Location", "GST Registration", "Mail Handling"], area: "Connaught Place", availability: "Available Now", popular: true },
       { id: 2, name: "Gurgaon Business Center", address: "DLF Cyber City, Gurgaon", price: "₹1,299/month", originalPrice: "₹1,599", rating: 4.7, reviews: 203, features: ["IT Hub Location", "Call Handling", "Meeting Rooms"], area: "Gurgaon", availability: "Available Now", popular: false },
@@ -160,7 +169,7 @@ const VirtualOffice = () => {
   if (["mumbai", "bombay"].includes(cityKey)) cityKey = "mumbai";
   if (["bangalore", "bengaluru"].includes(cityKey)) cityKey = "bangalore";
   if (["pune", "punecity"].includes(cityKey)) cityKey = "pune";
-  const cityOffices = mockVirtualOffices[cityKey as keyof typeof mockVirtualOffices] || mockVirtualOffices.delhi;
+  const cityOffices = mockVirtualOffices[cityKey as VirtualOfficeCityKey] || mockVirtualOffices.delhi;
 
   // Get unique areas for filtering
   const areas = [...new Set(cityOffices.map(office => office.area))];
