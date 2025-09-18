@@ -35,7 +35,7 @@ const Header = () => {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     } else {
       window.location.href = href;
@@ -86,8 +86,8 @@ const Header = () => {
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}><path d="M6 8L10 12L14 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </button>
                 <div
-                  className={`absolute right-0 top-full w-[600px] bg-white border border-border rounded-lg shadow-lg z-50 mt-2 transition-all duration-300 ${isDropdownOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-2'}`}
-                  style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
+                  className={`absolute left-1/2 top-full w-[600px] bg-white border border-border rounded-lg shadow-lg z-50 mt-2 transition-all duration-300 ${isDropdownOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-2'}`}
+                  style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.08)', transform: 'translateX(-50%)' }}
                 >
                   <div className="p-4">
                     <div className="grid grid-cols-2 gap-4">
@@ -101,7 +101,6 @@ const Header = () => {
                         <div className="flex flex-col">
                           {[
                             { label: 'Meeting Rooms', type: 'meeting-room' },
-                            
                             { label: 'Training Rooms', type: 'training-room' },
                             { label: 'Phone Booths', type: 'phone-booth' },
                             { label: 'Day Offices', type: 'day-office' },

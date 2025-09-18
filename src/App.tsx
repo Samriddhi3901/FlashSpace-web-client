@@ -28,26 +28,26 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/virtual-office" element={<VirtualOffice />} />
-          <Route path="/services/coworking-space" element={<CoworkingSpace />} />
-          <Route path="/services/on-demand" element={<OnDemand />} />
-          <Route path="/services/event-spaces" element={<EventSpaces />} />
-          <Route path="/services/business-setup" element={<BusinessSetup />} />
-          <Route path="/city-listing" element={<CityListing />} />
-          {/* <Route path="/solutions/virtual-office" element={<VirtualOfficeSearch />} />
-          <Route path="/solutions/coworking-space" element={<CoworkingSpaceSearch />} />
-          <Route path="/solutions/on-demand" element={<OnDemandSearch />} />
-          <Route path="/solutions/business-setup" element={<BusinessSetupSearch />} />
-          <Route path="/search-results" element={<SearchResults />} /> */}
-          <Route path="/list-your-space" element={<ListYourSpace />} />
-          <Route path="/coming-soon" element={<ComingSoon />} />
-          <Route path="/city/:cityId" element={<CityListing />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/virtual-office" element={<VirtualOffice />} />
+            <Route path="/services/coworking-space" element={<CoworkingSpace />} />
+            <Route path="/services/on-demand" element={<OnDemand />} />
+            <Route path="/services/event-spaces" element={<EventSpaces />} />
+            <Route path="/services/business-setup" element={<BusinessSetup />} />
+            <Route path="/city-listing" element={<CityListing />} />
+            {/* <Route path="/solutions/virtual-office" element={<VirtualOfficeSearch />} />
+            <Route path="/solutions/coworking-space" element={<CoworkingSpaceSearch />} />
+            <Route path="/solutions/on-demand" element={<OnDemandSearch />} />
+            <Route path="/solutions/business-setup" element={<BusinessSetupSearch />} />
+            <Route path="/search-results" element={<SearchResults />} /> */}
+            <Route path="/list-your-space" element={<ListYourSpace />} />
+            <Route path="/coming-soon" element={<ComingSoon />} />
+            <Route path="/city/:cityId" element={<CityListing />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

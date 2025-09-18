@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Removed Locomotive Scroll overrides */
+
 /* VirtuHub Connect Design System - FlashSpace Branding */
 
 @layer base {
