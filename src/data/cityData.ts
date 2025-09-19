@@ -97,6 +97,43 @@ export const cityData: Record<string, CityData> = {
         reviews: 127,
         availability: "Available"
       }
+      ,
+      {
+        id: "delhi-3",
+        name: "Connaught Place Virtual Office",
+        address: "CP Block, New Delhi",
+        type: "Virtual Office",
+        price: "₹999/month",
+        features: ["Prime Location", "GST Registration", "Mail Handling"],
+        images: ["/card-connaught-place.jpg"],
+        rating: 4.8,
+        reviews: 156,
+        availability: "Available Now"
+      },
+      {
+        id: "delhi-4",
+        name: "Gurgaon Business Center",
+        address: "DLF Cyber City, Gurgaon",
+        type: "Virtual Office",
+        price: "₹1,299/month",
+        features: ["IT Hub Location", "Call Handling", "Meeting Rooms"],
+        images: ["/card-gurgaon.jpg"],
+        rating: 4.7,
+        reviews: 203,
+        availability: "Available Now"
+      },
+      {
+        id: "delhi-5",
+        name: "Nehru Place Office",
+        address: "Nehru Place, Delhi",
+        type: "Virtual Office",
+        price: "₹799/month",
+        features: ["Commercial Center", "Professional Address", "Mail Services"],
+        images: ["/card-nehru-place.jpg"],
+        rating: 4.5,
+        reviews: 89,
+        availability: "Available Now"
+      }
     ]
   },
   bangalore: {

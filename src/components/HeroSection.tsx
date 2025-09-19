@@ -89,7 +89,7 @@ const HeroSection = () => {
     // Add query parameters for filtering
     const params = new URLSearchParams();
     params.set('city', selectedCity.toLowerCase().replace(/\s+/g, '-')); // Convert "New Delhi" to "new-delhi"
-    if (searchQuery) params.set('location', searchQuery);
+    // location parameter removed
     if (selectedService) params.set('service', selectedService);
     
     // Navigate using React Router instead of window.location
@@ -118,11 +118,11 @@ const HeroSection = () => {
             with virtual offices starting from <span className="text-accent font-semibold">₹799/month.</span>
           </p>
           
-          {/* Search Component - Enhanced Version */}
-          <div className="bg-white rounded-full shadow-2xl max-w-4xl mx-auto p-2 animate-fade-in" style={{ animationDelay: '400ms' }}>
-            <div className="flex flex-col md:flex-row gap-2">
+          {/* Search Component - Compact single-line */}
+          <div className="bg-white rounded-full shadow-2xl max-w-2xl mx-auto p-2 animate-fade-in" style={{ animationDelay: '400ms' }}>
+            <div className="flex flex-row items-center gap-2">
               {/* City Selection */}
-              <div className="flex-1 flex items-center px-4 py-3">
+              <div className="flex items-center px-4 py-3 w-56">
                 <MapPin className="w-5 h-5 mr-3 text-gray-500" />
                 <Popover open={isLocationOpen} onOpenChange={setIsLocationOpen}>
                   <PopoverTrigger asChild>
@@ -130,7 +130,7 @@ const HeroSection = () => {
                       variant="ghost"
                       role="combobox"
                       aria-expanded={isLocationOpen}
-                      className="justify-between p-0 h-auto font-normal border-0 bg-transparent hover:bg-transparent cursor-pointer"
+                      className="justify-between p-0 h-auto font-normal border-0 bg-transparent hover:bg-transparent cursor-pointer w-full text-left"
                     >
                       {selectedCity || "Select City"}
                       <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -172,87 +172,17 @@ const HeroSection = () => {
               </div>
 
               {/* Divider */}
-              <div className="hidden md:block w-px bg-gray-200 my-3"></div>
-
-              {/* Location Search within City */}
-              <div className="flex-1 flex items-center px-4 py-3 relative">
-                <Search className="w-5 h-5 mr-3 text-gray-500" />
-                <div className="w-full relative">
-                  <input
-                    type="text"
-                    placeholder={selectedCity ? `Search in ${selectedCity}...` : "Select city first"}
-                    value={searchQuery}
-                    onChange={(e) => {
-                      setSearchQuery(e.target.value);
-                      if (selectedCity && e.target.value.length > 0) {
-                        setIsSearchOpen(true);
-                      } else {
-                        setIsSearchOpen(false);
-                      }
-                    }}
-                    onFocus={() => {
-                      if (selectedCity) {
-                        setIsSearchOpen(true);
-                      }
-                    }}
-                    onBlur={() => {
-                      setTimeout(() => setIsSearchOpen(false), 200);
-                    }}
-                    disabled={!selectedCity}
-                    className="w-full bg-transparent border-0 outline-none text-gray-700 placeholder:text-gray-500 text-base"
-                    style={{ all: 'unset', width: '100%', color: '#374151' }}
-                  />
-                  
-                  {/* Recommendations Dropdown */}
-                  {isSearchOpen && selectedCity && (
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto">
-                      {getLocationRecommendations(selectedCity, searchQuery).length > 0 ? (
-                        <>
-                          <div className="px-3 py-2 text-xs font-medium text-gray-500 border-b">
-                            Popular Areas in {selectedCity}
-                          </div>
-                          {getLocationRecommendations(selectedCity, searchQuery).map((location) => (
-                            <div
-                              key={location}
-                              className="flex items-center px-3 py-2 hover:bg-gray-50 cursor-pointer"
-                              onMouseDown={(e) => {
-                                e.preventDefault(); // Prevent blur
-                                setSearchQuery(location);
-                                setIsSearchOpen(false);
-                              }}
-                            >
-                              <MapPin className="mr-2 h-4 w-4 text-gray-400" />
-                              <span className="text-sm">{location}</span>
-                            </div>
-                          ))}
-                        </>
-                      ) : searchQuery.length > 0 ? (
-                        <div className="px-3 py-2 text-sm text-gray-500">
-                          No locations found for "{searchQuery}"
-                        </div>
-                      ) : (
-                        <div className="px-3 py-2 text-sm text-gray-500">
-                          Start typing to search locations
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Divider */}
-              <div className="hidden md:block w-px bg-gray-200 my-3"></div>
+              <div className="w-px bg-gray-200 h-7"></div>
 
               {/* Solution Selection */}
-              <div className="flex-1 flex items-center px-4 py-3">
-                <Search className="w-5 h-5 mr-3 text-gray-500" />
+              <div className="flex items-center px-4 py-3 w-64">
                 <Popover open={isSolutionOpen} onOpenChange={setIsSolutionOpen}>
                   <PopoverTrigger asChild>
                     <Button
                       variant="ghost"
                       role="combobox"
                       aria-expanded={isSolutionOpen}
-                      className="justify-between p-0 h-auto font-normal border-0 bg-transparent hover:bg-transparent cursor-pointer"
+                      className="justify-between p-0 h-auto font-normal border-0 bg-transparent hover:bg-transparent cursor-pointer w-full text-left"
                     >
                       {selectedService || "Select Solution"}
                       <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -296,7 +226,7 @@ const HeroSection = () => {
               <Button 
                 onClick={handleSearch}
                 disabled={!selectedCity} // Only city is required
-                className="bg-black hover:bg-gray-800 text-white rounded-full px-12 py-6 h-auto font-medium disabled:opacity-50"
+                className="bg-black hover:bg-gray-800 text-white rounded-full px-10 py-4 h-auto font-semibold text-base md:text-lg disabled:opacity-50 ml-auto"
               >
                 Search
               </Button>

@@ -125,19 +125,19 @@ const Header = () => {
                             icon: Building2,
                             title: 'Virtual Office',
                             desc: 'Business address, mail handling, call forwarding',
-                            href: '/solutions/virtual-space',
+                            href: '/services/virtual-office',
                           },
                           {
                             icon: Users,
                             title: 'Coworking Space',
                             desc: 'Flexible desks, private cabins, team suites',
-                            href: '/solutions/coworking-space',
+                            href: '/services/coworking-space',
                           },
                           {
                             icon: FileText,
                             title: 'Business Setup',
                             desc: 'Company registration, GST, compliance',
-                            href: '/solutions/business-setup',
+                            href: '/services/business-setup',
                           },
                         ].map(({ icon: Icon, title, desc, href }) => (
                           <div
@@ -240,25 +240,25 @@ const Header = () => {
                         icon: Building2, 
                         label: "Virtual Spaces", 
                         description: "Professional business addresses & mail handling",
-                        href: "/solutions/virtual-space" 
+                        href: "/services/virtual-office" 
                       },
                       { 
                         icon: Users, 
                         label: "Coworking Spaces", 
                         description: "Flexible workspaces for teams & individuals",
-                        href: "/solutions/coworking-space" 
+                        href: "/services/coworking-space" 
                       },
                       { 
                         icon: Zap, 
                         label: "On Demand", 
                         description: "Meeting rooms & conference spaces as needed",
-                        href: "/solutions/on-demand" 
+                        href: "/services/on-demand" 
                       },
                       { 
                         icon: FileText, 
                         label: "Business Setup", 
                         description: "Company registration & compliance services",
-                        href: "/solutions/business-setup" 
+                        href: "/services/business-setup" 
                       },
                     ].map((option) => {
                       const IconComponent = option.icon;

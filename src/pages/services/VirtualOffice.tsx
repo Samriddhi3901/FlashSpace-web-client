@@ -107,9 +107,12 @@ const VirtualOffice = () => {
       <header className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="inline-flex items-center gap-2 text-gray-900 hover:text-primary transition-colors group">
-              <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
-              Back to Home
+            <Link to="/" className="inline-flex items-center gap-2" aria-label="FlashSpace Home">
+              <img
+                src="https://cdn.prod.website-files.com/664330484432dcdd6519a8fd/665dd8e0007de68a44f3750b_Black%20and%20White%20Bold%20Typography%20Clothing%20Brand%20Logo%20(940%20x%20400%20px)%20(940%20x%20200%20px)%20(940%20x%20150%20px).png"
+                alt="FlashSpace Logo"
+                className="h-8 w-auto"
+              />
             </Link>
             
             <DropdownMenu>
@@ -147,9 +150,9 @@ const VirtualOffice = () => {
         <div className="container mx-auto px-4 py-6">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <span>Home</span>
+            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
             <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-            <span>Virtual Office</span>
+            <Link to="/services/virtual-office" className="hover:text-primary transition-colors">Virtual Office</Link>
             <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
             <span className="text-gray-900 font-medium">{selectedCity}</span>
           </div>
