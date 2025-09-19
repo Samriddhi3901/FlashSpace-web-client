@@ -2,7 +2,7 @@ import { Building, MapPin, Mail, Phone, FileText, CheckCircle, Star, Users, Awar
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   DropdownMenu,
@@ -10,24 +10,97 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { 
+  City, 
+  BusinessSolution, 
+  VirtualOfficeItem, 
+  VirtualOfficeCityKey, 
+  VirtualOfficesByCity, 
+  ViewMode, 
+  SortBy 
+} from "@/types/services";
 
 const VirtualOffice = () => {
   const [searchParams] = useSearchParams();
-  const [selectedCity, setSelectedCity] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [viewMode, setViewMode] = useState("grid");
-  const [sortBy, setSortBy] = useState("popularity");
-  const [selectedArea, setSelectedArea] = useState("all");
-  const [selectedServices, setSelectedServices] = useState("all");
+  const navigate = useNavigate();
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [selectedLocation, setSelectedLocation] = useState<string>("");
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [sortBy, setSortBy] = useState<SortBy>("popularity");
+  const [selectedArea, setSelectedArea] = useState<string>("all");
+  const [selectedServices, setSelectedServices] = useState<string>("all");
+  const [searchCity, setSearchCity] = useState<string>("");
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
+  const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
+
+  // Available cities for search
+  const availableCities: City[] = [
+    { name: "Delhi", key: "delhi" },
+    { name: "Mumbai", key: "mumbai" },
+    { name: "Bangalore", key: "bangalore" },
+    { name: "Pune", key: "pune" },
+    { name: "Chennai", key: "chennai" },
+    { name: "Hyderabad", key: "hyderabad" },
+    { name: "Kolkata", key: "kolkata" },
+    { name: "Ahmedabad", key: "ahmedabad" },
+    { name: "Jaipur", key: "jaipur" },
+    { name: "Surat", key: "surat" },
+    { name: "Lucknow", key: "lucknow" }
+  ];
 
   useEffect(() => {
     const city = searchParams.get('city') || 'Delhi';
     const location = searchParams.get('location') || '';
     setSelectedCity(city);
     setSelectedLocation(location);
+    setSearchCity(city);
   }, [searchParams]);
 
-  const businessSolutions = [
+  // Filter cities based on search input
+  const filteredCities: City[] = availableCities.filter(city =>
+    city.name.toLowerCase().includes(searchCity.toLowerCase())
+  );
+
+  // Handle city search
+  const handleCitySearch = (cityName: string): void => {
+    setSearchCity(cityName);
+    setSelectedCity(cityName);
+    setShowSuggestions(false);
+    
+    // Update URL with new city
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set('city', cityName);
+    navigate(`?${newSearchParams.toString()}`, { replace: true });
+  };
+
+  // Handle search input change
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setSearchCity(e.target.value);
+    setShowSuggestions(true);
+  };
+
+  // Handle search input focus
+  const handleSearchFocus = (): void => {
+    setIsSearchFocused(true);
+    setShowSuggestions(true);
+  };
+
+  // Handle search input blur
+  const handleSearchBlur = (): void => {
+    setIsSearchFocused(false);
+    setTimeout(() => setShowSuggestions(false), 200);
+  };
+
+  // Handle search form submit
+  const handleSearchSubmit = (e: React.FormEvent): void => {
+    e.preventDefault();
+    if (searchCity.trim()) {
+      handleCitySearch(searchCity.trim());
+    }
+  };
+
+  const businessSolutions: BusinessSolution[] = [
     {
       label: "Virtual Office",
       href: "/services/virtual-office",
@@ -54,12 +127,12 @@ const VirtualOffice = () => {
     }
   ];
 
-  const handleNavigation = (href: string) => {
+  const handleNavigation = (href: string): void => {
     window.location.href = href;
   };
 
   // Mock data for virtual offices by city
-  const mockVirtualOffices = {
+  const mockVirtualOffices: VirtualOfficesByCity = {
     delhi: [
       { id: 1, name: "Connaught Place Virtual Office", address: "CP Block, New Delhi", price: "₹999/month", originalPrice: "₹1,299", rating: 4.8, reviews: 156, features: ["Prime Location", "GST Registration", "Mail Handling"], area: "Connaught Place", availability: "Available Now", popular: true },
       { id: 2, name: "Gurgaon Business Center", address: "DLF Cyber City, Gurgaon", price: "₹1,299/month", originalPrice: "₹1,599", rating: 4.7, reviews: 203, features: ["IT Hub Location", "Call Handling", "Meeting Rooms"], area: "Gurgaon", availability: "Available Now", popular: false },
@@ -96,15 +169,20 @@ const VirtualOffice = () => {
   if (["mumbai", "bombay"].includes(cityKey)) cityKey = "mumbai";
   if (["bangalore", "bengaluru"].includes(cityKey)) cityKey = "bangalore";
   if (["pune", "punecity"].includes(cityKey)) cityKey = "pune";
-  const cityOffices = mockVirtualOffices[cityKey as keyof typeof mockVirtualOffices] || mockVirtualOffices.delhi;
+  const cityOffices = mockVirtualOffices[cityKey as VirtualOfficeCityKey] || mockVirtualOffices.delhi;
 
   // Get unique areas for filtering
   const areas = [...new Set(cityOffices.map(office => office.area))];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative">
+      {/* Search Focus Overlay */}
+      {isSearchFocused && (
+        <div className="fixed inset-0 bg-black/30 z-40 transition-opacity duration-300" />
+      )}
+      
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className={`bg-white border-b border-gray-200 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'}`}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="inline-flex items-center gap-2" aria-label="FlashSpace Home">
@@ -146,24 +224,87 @@ const VirtualOffice = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1">
-        <div className="container mx-auto px-4 py-6">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-            <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-            <Link to="/services/virtual-office" className="hover:text-primary transition-colors">Virtual Office</Link>
-            <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-            <span className="text-gray-900 font-medium">{selectedCity}</span>
-          </div>
+<main className="flex-1">
+  <div className="container mx-auto px-4 py-6">
+    {/* Breadcrumb */}
+    <div className={`flex items-center gap-2 text-sm text-gray-600 mb-4 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'}`}>
+      <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+      <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
+      <Link to="/services/virtual-office" className="hover:text-primary transition-colors">Virtual Office</Link>
+      <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
+      <span className="text-gray-900 font-medium">{selectedCity}</span>
+    </div>
 
           {/* Page Title */}
-          <h1 className="text-3xl font-bold text-gray-900 mb-6">
+          <h1 className={`text-3xl font-bold text-gray-900 mb-6 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'}`}>
             Virtual Office Space In {selectedCity}
           </h1>
+          
+          {/* City Search Section - This stays focused */}
+          <div className={`bg-white rounded-lg border p-4 mb-4 relative z-50 transition-all duration-300 ${
+            isSearchFocused 
+              ? 'border-primary shadow-2xl shadow-primary/20 bg-white' 
+              : 'border-gray-200 shadow-sm'  
+          }`}>
+            <div className="flex items-center gap-4">
+              <div className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
+                isSearchFocused ? 'text-primary' : 'text-gray-700'
+              }`}>
+                <Search className={`w-4 h-4 transition-all duration-300 ${
+                  isSearchFocused ? 'text-primary scale-110' : ''
+                }`} />
+                SEARCH CITY
+              </div>
+              
+              <form onSubmit={handleSearchSubmit} className="relative flex-1 max-w-md">
+                <div className="relative">
+                  <Input
+                    type="text"
+                    value={searchCity}
+                    onChange={handleSearchInputChange}
+                    onFocus={handleSearchFocus}
+                    onBlur={handleSearchBlur}
+                    placeholder="Search for a city..."
+                    className={`pr-10 transition-all duration-300 ${
+                      isSearchFocused 
+                        ? 'border-primary ring-2 ring-primary/20 focus:ring-primary/30' 
+                        : 'border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent'
+                    }`}
+                  />
+                  <Button
+                    type="submit"
+                    size="sm"
+                    className={`absolute right-1 top-1 h-8 px-3 transition-all duration-300 ${
+                      isSearchFocused ? 'bg-primary/90 scale-105' : ''
+                    }`}
+                  >
+                    <Search className="w-4 h-4" />
+                  </Button>
+                </div>
+                
+                {/* City Suggestions Dropdown */}
+                {showSuggestions && filteredCities.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 bg-white border border-primary/20 rounded-md shadow-xl z-10 mt-1 max-h-60 overflow-y-auto animate-in fade-in-0 zoom-in-95 duration-200">
+                    {filteredCities.map((city) => (
+                      <div
+                        key={city.key}
+                        className="px-4 py-3 hover:bg-primary/5 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors duration-200"
+                        onClick={() => handleCitySearch(city.name)}
+                      >
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-primary" />
+                          <span className="text-sm text-gray-900 font-medium">{city.name}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
 
           {/* Filters Row */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 mb-6">
+          {/* <div className={`bg-white rounded-lg border border-gray-200 p-4 mb-6 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'}`}>
             <div className="flex flex-wrap items-center gap-4">
               <div className="flex items-center gap-2 text-sm font-medium text-gray-700">
                 <Filter className="w-4 h-4" />
@@ -207,10 +348,10 @@ const VirtualOffice = () => {
                 Reset filters
               </Button>
             </div>
-          </div>
+          </div> */}
 
           {/* Results Header */}
-          <div className="flex items-center justify-between mb-6">
+          <div className={`flex items-center justify-between mb-6 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'}`}>
             <div className="flex items-center gap-4">
               <p className="text-gray-600">
                 Showing <span className="font-semibold text-gray-900">{cityOffices.length} result(s)</span> for virtual office space in {selectedCity}
@@ -246,7 +387,7 @@ const VirtualOffice = () => {
           </div>
 
           {/* Virtual Office Listings */}
-          <div className={`grid gap-4 mb-8 ${viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"}`}>
+          <div className={`grid gap-4 mb-8 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'} ${viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"}`}>
             {cityOffices.map((office) => {
               let imageSrc = "";
               switch (office.name) {
@@ -353,7 +494,7 @@ const VirtualOffice = () => {
           </div>
 
           {/* Consultant Section */}
-          <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
+          <div className={`bg-white rounded-lg border border-gray-200 p-6 mb-8 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'}`}>
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">

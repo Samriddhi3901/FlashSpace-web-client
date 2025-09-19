@@ -1,4 +1,4 @@
-import { FileCheck, Users, Building, Shield, ChevronDown, Phone, MapPin, Clock, CheckCircle, Award } from "lucide-react";
+import { Building, MapPin, Mail, Phone, FileText, CheckCircle, Star, Users, Award, ChevronDown, Shield, FileCheck, Clock } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -10,11 +10,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { 
+  BusinessSolution, 
+  BusinessSetupFeature, 
+  BusinessSetupService, 
+  BusinessSetupCityKey, 
+  BusinessSetupServicesByCity 
+} from "@/types/services";
 
 const BusinessSetup = () => {
   const [searchParams] = useSearchParams();
-  const [selectedCity, setSelectedCity] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [selectedLocation, setSelectedLocation] = useState<string>("");
 
   useEffect(() => {
     const city = searchParams.get('city') || 'Delhi';
@@ -23,7 +30,7 @@ const BusinessSetup = () => {
     setSelectedLocation(location);
   }, [searchParams]);
 
-  const businessSolutions = [
+  const businessSolutions: BusinessSolution[] = [
     {
       label: "Virtual Office",
       href: "/services/virtual-office",
@@ -50,11 +57,11 @@ const BusinessSetup = () => {
     }
   ];
 
-  const handleNavigation = (href: string) => {
+  const handleNavigation = (href: string): void => {
     window.location.href = href;
   };
 
-  const features = [
+  const features: BusinessSetupFeature[] = [
     {
       icon: <FileCheck className="w-6 h-6" />,
       title: "Company Registration",
@@ -100,7 +107,7 @@ const BusinessSetup = () => {
   ];
 
   // Mock data for business setup services by city
-  const mockBusinessSetupServices = {
+  const mockBusinessSetupServices: BusinessSetupServicesByCity = {
     delhi: [
       { id: 1, name: "Private Limited Company Package", description: "Complete Pvt Ltd registration with digital signature", price: "₹6,999", timeline: "10-15 days", features: ["Company Registration", "Digital Signature", "Bank Account Opening", "GST Registration"] },
       { id: 2, name: "Startup Registration Bundle", description: "Perfect package for new startups and entrepreneurs", price: "₹12,999", timeline: "15-21 days", features: ["Company Registration", "Trademark Filing", "GST Registration", "Professional Address", "Compliance Kit"] },
@@ -124,7 +131,7 @@ const BusinessSetup = () => {
 
   // Get services for selected city
   const cityKey = selectedCity.toLowerCase().replace(/\s+/g, '').replace(/-/g, '');
-  const cityServices = mockBusinessSetupServices[cityKey as keyof typeof mockBusinessSetupServices] || mockBusinessSetupServices.delhi;
+  const cityServices = mockBusinessSetupServices[cityKey as BusinessSetupCityKey] || mockBusinessSetupServices.delhi;
 
   return (
     <div className="min-h-screen bg-gray-50">
