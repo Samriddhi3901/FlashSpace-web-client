@@ -132,7 +132,7 @@ const CoworkingSpace = () => {
   };
 
   // Enhanced mock data for coworking spaces by city
-  const mockCoworkingSpaces: CoworkingSpacesByCity = {
+  const mockCoworkingSpaces: any = {
     delhi: [
       { id: 1, name: "WeWork Connaught Place", address: "Connaught Place, New Delhi", price: "₹15,000/month", originalPrice: "₹18,000", rating: 4.8, reviews: 245, type: "Hot Desk", features: ["High-Speed WiFi", "Meeting Rooms", "Coffee Bar", "24/7 Access"], area: "Connaught Place", availability: "Available Now", popular: true },
       { id: 2, name: "IndiQube Gurgaon", address: "DLF Cyber City, Gurgaon", price: "₹18,000/month", originalPrice: "₹22,000", rating: 4.7, reviews: 189, type: "Dedicated Desk", features: ["Private Cabin Option", "Parking", "Event Space", "Cafeteria"], area: "Gurgaon", availability: "Available Now", popular: false },

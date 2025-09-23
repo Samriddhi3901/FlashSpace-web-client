@@ -14,6 +14,7 @@ import CoworkingSpace from "./pages/services/CoworkingSpace";
 import OnDemand from "./pages/services/OnDemand";
 import EventSpaces from "./pages/services/EventSpaces";
 import BusinessSetup from "./pages/services/BusinessSetup";
+import MouseFollower from "./components/MouseFollower";
 // import VirtualOfficeSearch from "./pages/solutions/VirtualOfficeSearch";
 // import CoworkingSpaceSearch from "./pages/solutions/CoworkingSpaceSearch";
 // import OnDemandSearch from "./pages/solutions/OnDemandSearch";
@@ -28,6 +29,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <MouseFollower/>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />

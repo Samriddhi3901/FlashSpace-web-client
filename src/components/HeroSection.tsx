@@ -8,6 +8,7 @@ import { MapPin, Search, ChevronDown, Check } from "lucide-react";
 import { useState } from "react";
 import VideoBackground from "./VideoBackground";
 import { cn } from "@/lib/utils";
+import RippleButton from "@/components/ui/RippleButton/RippleButton";
 
 const HeroSection = () => {
   const [selectedCity, setSelectedCity] = useState("Delhi"); // Default Delhi selected
@@ -117,7 +118,7 @@ const HeroSection = () => {
         {/* Hero Content */}
         <div className="max-w-4xl mx-auto mb-8 relative">          
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-black animate-fade-in">
-            Discover Workspaces <span className="text-accent text-[#423E37]">That Works For You</span>
+            Discover Workspaces <span className=" text-[#423E37]">That Works For You</span>
           </h1>
           
           <p className="text-lg md:text-xl text-black mb-8 leading-relaxed font-content animate-fade-in" style={{ animationDelay: '200ms' }}>
@@ -301,13 +302,24 @@ const HeroSection = () => {
               </div>
 
               {/* Search Button */}
-              <Button 
+              {/* <Button 
                 onClick={handleSearch}
                 disabled={!selectedCity} // Only city is required
                 className="bg-black hover:bg-gray-800 text-white rounded-full px-12 py-6 h-auto font-medium disabled:opacity-50"
               >
                 Search
-              </Button>
+              </Button> */}
+
+              <RippleButton 
+               text="Search"
+               background="#000000"
+               textColor="white"
+               hoverTextColor="black"
+               hoverFlairColor="#EFAD1A"
+               buttonHeight = "60px"
+              
+              />
+              
             </div>
           </div>
         </div>

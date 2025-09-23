@@ -1,5 +1,5 @@
 import { Building, MapPin, Mail, Phone, FileText, CheckCircle, Star, Users, Award, ChevronDown, Shield, FileCheck, Clock } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {  Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
@@ -258,7 +258,7 @@ const BusinessSetup = () => {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {cityServices.map((service) => (
+              {/* {cityServices.map((service) => (
                 <Card key={service.id} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover-lift border border-gray-200">
                   <CardHeader>
                     <div className="flex justify-between items-start mb-2">
@@ -298,7 +298,8 @@ const BusinessSetup = () => {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+              ))} */}
+              <Card />
             </div>
           </div>
         </div>

@@ -1,11 +1,30 @@
 ﻿import { useState, useEffect, useRef } from "react";
+import { smoothScrollTo } from "@/lib/lenis";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Building2, Users, Zap, FileText, UserCheck, ArrowRight } from "lucide-react";
+import StaggeredMenu from "./StaggeredMenu";
 // import FileUploadButton from "./FileUploadButton";
 // Using uploaded FlashSpace logo
 
+
+// Menu and social items for accessibility and SEO
+const menuItems = [
+  { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
+  { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
+  { label: 'Services', ariaLabel: 'View our services', link: '/services' },
+  { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+];
+
+const socialItems = [
+  { label: 'Twitter', link: 'https://twitter.com' },
+  { label: 'GitHub', link: 'https://github.com' },
+  { label: 'LinkedIn', link: 'https://linkedin.com' }
+];
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
     { label: "List Your Space", href: "/list-your-space" },
@@ -13,6 +32,17 @@ const Header = () => {
   ];
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Detect scroll to toggle header background
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      setScrolled(y > 10);
+    };
+    onScroll(); // initialize state
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -32,19 +62,30 @@ const Header = () => {
   }, [isDropdownOpen]);
 
   const handleNavigation = (href: string) => {
-    if (href.startsWith("#")) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (href.startsWith('#')) {
+      try {
+        smoothScrollTo(href, { offset: -90 });
+      } catch {
+        // fallback native smooth if Lenis unavailable
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     } else {
+      // For internal route paths keep existing full page nav for now. Could switch to react-router navigate.
       window.location.href = href;
     }
     setIsMenuOpen(false);
   };
 
   return (
-    <header className="fixed top-0 w-full z-50  border-border">
+    <header
+      className={cn(
+        "fixed top-0 w-full z-50 transition-all duration-300",
+        scrolled
+          ? "bg-white/85 supports-[backdrop-filter]:bg-white/65 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-transparent"
+      )}
+    >
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
