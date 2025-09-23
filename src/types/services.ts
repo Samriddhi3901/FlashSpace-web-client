@@ -13,7 +13,7 @@ export interface BusinessSolution {
 
 // Virtual Office specific types
 export interface VirtualOfficeItem {
-  id: number;
+  _id: number;
   name: string;
   address: string;
   price: string;
@@ -31,7 +31,7 @@ export type VirtualOfficesByCity = Record<VirtualOfficeCityKey, VirtualOfficeIte
 
 // Event Spaces specific types
 export interface EventSpaceItem {
-  id: number;
+  _id: number;
   name: string;
   address: string;
   price: string;
@@ -57,7 +57,7 @@ export type EventSpacesByCity = Record<EventSpaceCityKey, EventSpaceItem[]>;
 
 // Coworking Space specific types
 export interface CoworkingSpaceItem {
-  id: number;
+  _id: number;
   name: string;
   address: string;
   price: string;
