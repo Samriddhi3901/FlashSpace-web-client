@@ -22,7 +22,7 @@ export interface VirtualOfficeItem {
   reviews: number;
   features: string[];
   area: string;
-  availability: string;
+  availability: string; // to boolean
   popular: boolean;
 }
 
@@ -40,7 +40,7 @@ export interface EventSpaceItem {
   reviews: number;
   type: string;
   capacity: string;
-  features: string[];
+  features: string[];           
   area: string;
   availability: string;
   popular: boolean;

@@ -191,7 +191,7 @@ const CoworkingSpace = () => {
               Back to Home
             </Link>
             
-            <DropdownMenu>
+            {/* <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button 
                   variant="outline" 
@@ -216,7 +216,7 @@ const CoworkingSpace = () => {
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> */}
           </div>
         </div>
       </header>
@@ -298,6 +298,32 @@ const CoworkingSpace = () => {
                   </div>
                 )}
               </form>
+              <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="text-sm text-gray-700 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-2 border-gray-300"
+                >
+                  Coworking Space
+                  <ChevronDown className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-64 bg-white border border-gray-200 shadow-lg">
+                {businessSolutions.map((solution) => (
+                  <DropdownMenuItem 
+                    key={solution.label}
+                    onClick={() => handleNavigation(solution.href)}
+                    className="cursor-pointer p-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <solution.icon className="w-4 h-4 mr-3 text-primary" />
+                    <div className="flex flex-col">
+                      <span className="font-medium text-gray-900">{solution.label}</span>
+                      <span className="text-xs text-gray-500">{solution.description}</span>
+                    </div>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             </div>
           </div>
 

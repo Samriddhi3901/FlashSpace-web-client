@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Building2, Users, Zap, FileText, UserCheck, ArrowRight } from "lucide-react";
 // import FileUploadButton from "./FileUploadButton";
@@ -44,7 +44,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 w-full z-50  border-border">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -71,7 +71,7 @@ const Header = () => {
                 }}
               >
                 <button
-                  className="text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium font-content flex items-center gap-1 cursor-pointer"
+                  className="text-sm text-black hover:text-primary transition-colors duration-300 font-medium font-content flex items-center gap-1 cursor-pointer"
                   onClick={() => setIsDropdownOpen((open) => !open)}
                   aria-haspopup="true"
                   aria-expanded={isDropdownOpen}
@@ -181,7 +181,7 @@ const Header = () => {
                 <button
                   key={item.label}
                   onClick={() => handleNavigation(item.href)}
-                  className="text-sm text-foreground/80 hover:text-primary transition-colors duration-300 font-medium font-content"
+                  className="text-sm text-black hover:text-primary transition-colors duration-300 font-medium font-content"
                 >
                   {item.label}
                 </button>

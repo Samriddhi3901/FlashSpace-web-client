@@ -101,21 +101,29 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center pt-16 pb-12 px-4 relative overflow-hidden">
       {/* Dynamic Video Background - Only for Hero Section */}
-      <VideoBackground />
+      {/* <VideoBackground /> */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://cdn.leonardo.ai/users/05b39ad0-9a26-4ab8-9b95-8a4391bcc4d7/generations/e6771843-c8d2-4ad6-bc44-17271c224bfc/AlbedoBase_XL_Minimalist_abstract_2D_digital_artwork_solid_gol_0.jpg" 
+          alt="Hero Background" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
       {/* Darker overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-black/40 to-slate-800/50 backdrop-blur-sm z-10"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-black/40 to-slate-800/50 backdrop-blur-sm z-10"></div> */}
       
       <div className="container mx-auto text-center relative z-20">
         {/* Hero Content */}
         <div className="max-w-4xl mx-auto mb-8 relative">          
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white animate-fade-in">
-            Discover Workspaces <span className="text-accent">That Works For You</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-black animate-fade-in">
+            Discover Workspaces <span className="text-accent text-[#423E37]">That Works For You</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed font-content animate-fade-in" style={{ animationDelay: '200ms' }}>
+          <p className="text-lg md:text-xl text-black mb-8 leading-relaxed font-content animate-fade-in" style={{ animationDelay: '200ms' }}>
             Enabling Businesses Pan India to register and expand hustlefree
             <br />
-            with virtual offices starting from <span className="text-accent font-semibold">₹799/month.</span>
+            with virtual offices starting from <span className="text-black font-bold">₹799/month.</span>
           </p>
           
           {/* Search Component - Enhanced Version */}
