@@ -316,8 +316,8 @@ const HeroSection = () => {
                textColor="white"
                hoverTextColor="black"
                hoverFlairColor="#EFAD1A"
-               buttonHeight = "60px"
-              
+               buttonHeight="60px"
+               onClick={handleSearch}
               />
               
             </div>
