@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import ServiceHero from "@/components/ServiceHero";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -167,8 +168,13 @@ const OnDemand = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 p-8">
-          <div className="max-w-5xl mx-auto">
+      <main className="flex-1">
+          <ServiceHero
+            title="On Demand"
+            subtitle="Book When You Need"
+            description="Pay-as-you-go meeting rooms and services with modern AV and flexible booking. Ideal for client meetings, interviews, and workshops."
+          />
+          <div className="max-w-5xl mx-auto p-8">
             {/* City-specific Header */}
             {selectedCity && (
               <div className="bg-primary/5 rounded-lg p-6 mb-8">

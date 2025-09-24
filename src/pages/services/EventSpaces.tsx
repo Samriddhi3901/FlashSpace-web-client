@@ -166,7 +166,7 @@ const EventSpaces = () => {
   ];
 
   // Mock data for event spaces by city
-  const mockEventSpaces: EventSpacesByCity = {
+  const mockEventSpaces: any = {
     delhi: [
       { id: 1, name: "Grand Imperial Hall", address: "Connaught Place, New Delhi", price: "₹50,000/day", originalPrice: "₹65,000", rating: 4.8, reviews: 156, type: "Conference Hall", capacity: "500-800", features: ["Premium AV Setup", "Catering Kitchen", "VIP Lounge", "Parking"], area: "Connaught Place", availability: "Available Now", popular: true },
       { id: 2, name: "Tech Summit Center", address: "Gurgaon Cyber Hub", price: "₹75,000/day", originalPrice: "₹95,000", rating: 4.9, reviews: 234, type: "Convention Center", capacity: "1000-1500", features: ["Latest Tech", "Multiple Halls", "Exhibition Space", "Hospitality Suite"], area: "Gurgaon", availability: "Available Now", popular: true },

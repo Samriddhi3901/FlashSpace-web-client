@@ -24,3 +24,4 @@ const AvailableLocations = ({ cities, heading = "We are available in" }: Availab
 export default AvailableLocations;
 
 
+

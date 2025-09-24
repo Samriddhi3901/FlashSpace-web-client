@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import ServiceHero from "@/components/ServiceHero";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -176,8 +177,13 @@ const BusinessSetup = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 p-8">
-        <div className="max-w-5xl mx-auto">
+      <main className="flex-1">
+        <ServiceHero
+          title="Business Setup"
+          subtitle="Launch With Confidence"
+          description="End-to-end company registration, legal documentation, and compliance assistance. From GST to MSME, get everything sorted by experts."
+        />
+        <div className="max-w-5xl mx-auto p-8">
           {/* City-specific Header */}
           {selectedCity && (
             <div className="bg-primary/5 rounded-lg p-6 mb-8">

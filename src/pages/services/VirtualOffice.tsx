@@ -132,7 +132,7 @@ const VirtualOffice = () => {
   };
 
   // Mock data for virtual offices by city
-  const mockVirtualOffices: VirtualOfficesByCity = {
+  const mockVirtualOffices: any = {
     delhi: [
       { id: 1, name: "Connaught Place Virtual Office", address: "CP Block, New Delhi", price: "₹999/month", originalPrice: "₹1,299", rating: 4.8, reviews: 156, features: ["Prime Location", "GST Registration", "Mail Handling"], area: "Connaught Place", availability: "Available Now", popular: true },
       { id: 2, name: "Gurgaon Business Center", address: "DLF Cyber City, Gurgaon", price: "₹1,299/month", originalPrice: "₹1,599", rating: 4.7, reviews: 203, features: ["IT Hub Location", "Call Handling", "Meeting Rooms"], area: "Gurgaon", availability: "Available Now", popular: false },
