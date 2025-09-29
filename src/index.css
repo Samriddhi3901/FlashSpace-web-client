@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Font - c4b700 */
+@font-face {
+  font-family: 'c4b700';
+  src: url('./assets/fonts/c4b700dcb2187787-s.p.woff2') format('woff2'),
+       url('./assets/fonts/c4b700dcb2187787-s.p.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'new-one';
+  src: url('./assets//fonts/e4af272ccee01ff0-s.p.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url("./assets//fonts/Poppins-Regular.ttf") format("truetype");
+}
+
 /* Removed Locomotive Scroll overrides */
 
 /* VirtuHub Connect Design System - FlashSpace Branding */
@@ -304,5 +324,14 @@
   to {
     opacity: 1;
     transform: translateX(0) rotateY(0deg);
+  }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-8px); 
   }
 }
