@@ -14,6 +14,7 @@ import CoworkingSpace from "./pages/services/CoworkingSpace";
 import OnDemand from "./pages/services/OnDemand";
 import EventSpaces from "./pages/services/EventSpaces";
 import BusinessSetup from "./pages/services/BusinessSetup";
+import StartChatting from "./pages/StartChatting";
 import MouseFollower from "./components/MouseFollower";
 // import VirtualOfficeSearch from "./pages/solutions/VirtualOfficeSearch";
 // import CoworkingSpaceSearch from "./pages/solutions/CoworkingSpaceSearch";
@@ -47,6 +48,7 @@ const App = () => (
             <Route path="/list-your-space" element={<ListYourSpace />} />
             <Route path="/coming-soon" element={<ComingSoon />} />
             <Route path="/city/:cityId" element={<CityListing />} />
+            <Route path="/start-chatting" element={<StartChatting />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

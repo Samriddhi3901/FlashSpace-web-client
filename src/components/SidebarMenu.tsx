@@ -10,7 +10,7 @@ interface SidebarMenuProps {
 
 const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
   const primaryTop = [
-    { label: 'Start Chatting', href: '#chat-section' },
+    { label: 'Start Chatting', href: '/start-chatting' },
     { label: 'Get WorkSpace', href: '/services/coworking-space' },
     { label: 'Business Setup', href: '/solutions/business-setup' },
   ];
