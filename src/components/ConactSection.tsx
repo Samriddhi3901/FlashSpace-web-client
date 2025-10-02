@@ -89,45 +89,32 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 relative overflow-hidden bg-gradient-to-br from-background via-card-hover to-background">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      </div>
-      
+    <section id="contact" className="py-20 px-4 relative overflow-hidden bg-[#ffffff]">
+
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`}>
-            Ready to Transform Your Business?
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+            <span className="text-[#172A3A]">Ready to Transform Your Business?</span>
             <br />
-            <span className="gradient-text-accent">Let's Connect!</span>
+            <span className="text-[#CE7A17]">Let's Connect!</span>
           </h2>
-          <p className={`text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
-            Get started with FlashSpace today and experience the future of virtual office solutions. 
+          <p className={`text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
+            Get started with FlashSpace today and experience the future of virtual office solutions.
             Our team is ready to help you find the perfect solution for your business needs.
           </p>
-          
-          {/* Floating Elements */}
-          <div className="relative mt-8">
-            <div className="absolute -top-6 left-1/4 w-6 h-6 bg-accent/20 rounded-full blur-sm animate-float"></div>
-            <div className="absolute -top-4 right-1/3 w-4 h-4 bg-primary/20 rounded-full blur-sm animate-float" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute -bottom-2 left-1/3 w-3 h-3 bg-accent/30 rounded-full blur-sm animate-float" style={{ animationDelay: '2s' }}></div>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
           {/* Contact Form */}
           <div className="w-full h-full">
-            <Card className={`glass-card border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-accent/30 h-full ${getAnimationClasses(isVisible, 'slideRight', 400)}`}>
+            <Card className={`bg-white border-2 border-gray-200 shadow-md hover:shadow-xl transition-all duration-500 hover:border-[#CE7A17] h-full ${getAnimationClasses(isVisible, 'slideRight', 400)}`}>
               <CardHeader className="pb-6">
-                <CardTitle className="text-2xl gradient-text-primary flex items-center gap-3 font-header">
-                  <Send className="w-8 h-8" />
+                <CardTitle className="text-2xl text-[#172A3A] flex items-center gap-3" style={{ fontFamily: 'instrument-serif' }}>
+                  <Send className="w-8 h-8 text-[#CE7A17]" />
                   Get in Touch
                 </CardTitle>
-                <p className="text-muted-foreground">Fill out the form and we'll get back to you within 24 hours</p>
+                <p className="text-gray-600">Fill out the form and we'll get back to you within 24 hours</p>
               </CardHeader>
               <CardContent className="flex-1">
                 <form onSubmit={handleSubmit} className="space-y-6 h-full flex flex-col">
@@ -141,7 +128,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={(e) => handleInputChange("name", e.target.value)}
                       required
-                      className="bg-secondary/50 border-primary/20 focus:border-primary/40"
+                      className="bg-gray-50 border-2 border-gray-200 focus:border-[#CE7A17]"
                     />
                   </div>
                   <div className="space-y-2">
@@ -153,7 +140,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={(e) => handleInputChange("email", e.target.value)}
                       required
-                      className="bg-secondary/50 border-primary/20 focus:border-primary/40"
+                      className="bg-gray-50 border-2 border-gray-200 focus:border-[#CE7A17]"
                     />
                   </div>
                 </div>
@@ -168,7 +155,7 @@ const ContactSection = () => {
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value)}
-                      className="bg-secondary/50 border-primary/20 focus:border-primary/40"
+                      className="bg-gray-50 border-2 border-gray-200 focus:border-[#CE7A17]"
                     />
                   </div>
                   <div className="space-y-2">
@@ -178,7 +165,7 @@ const ContactSection = () => {
                       placeholder="Your Company"
                       value={formData.company}
                       onChange={(e) => handleInputChange("company", e.target.value)}
-                      className="bg-secondary/50 border-primary/20 focus:border-primary/40"
+                      className="bg-gray-50 border-2 border-gray-200 focus:border-[#CE7A17]"
                     />
                   </div>
                 </div>
@@ -187,10 +174,10 @@ const ContactSection = () => {
                 <div className="space-y-2">
                   <Label htmlFor="service">Service Interest</Label>
                   <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
-                    <SelectTrigger className="bg-white border-primary/20 focus:border-primary/40">
+                    <SelectTrigger className="bg-gray-50 border-2 border-gray-200 focus:border-[#CE7A17]">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
-                    <SelectContent className="bg-white border border-primary/20 shadow-lg">
+                    <SelectContent className="bg-white border-2 border-gray-200 shadow-lg">
                       <SelectItem value="virtual-office">Virtual Office Solutions</SelectItem>
                       <SelectItem value="business-registration">Business Registration</SelectItem>
                       <SelectItem value="mail-management">Mail Management</SelectItem>
@@ -210,15 +197,15 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={(e) => handleInputChange("message", e.target.value)}
                     rows={4}
-                    className="bg-secondary/50 border-primary/20 focus:border-primary/40"
+                    className="bg-gray-50 border-2 border-gray-200 focus:border-[#CE7A17]"
                   />
                 </div>
 
                   {/* Submit Button */}
                   <div className="mt-auto pt-4">
-                    <Button 
+                    <Button
                       type="submit"
-                      className="w-full btn-hero py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                      className="w-full bg-[#CE7A17] hover:bg-[#172A3A] text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                     >
                       <Send className="w-5 h-5 mr-2" />
                       Send Message
@@ -234,21 +221,21 @@ const ContactSection = () => {
             {/* Contact Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
               {contactInfo.map((info, index) => (
-                <Card 
+                <Card
                   key={index}
-                  className={`glass-card hover-lift bg-card border-primary/20 hover:border-accent/30 transition-all duration-500 cursor-pointer group shadow-lg hover:shadow-xl ${getAnimationClasses(isVisible, 'slideLeft', 400 + index * 100)}`}
+                  className={`bg-white border-2 border-gray-200 hover:border-[#CE7A17] transition-all duration-500 cursor-pointer group shadow-md hover:shadow-xl hover:scale-105 ${getAnimationClasses(isVisible, 'slideLeft', 400 + index * 100)}`}
                   onClick={() => window.open(info.href, '_blank')}
                 >
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary group-hover:text-accent transition-colors duration-300 group-hover:scale-110 transform transition-transform">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#172A3A]/15 to-[#CE7A17]/15 rounded-2xl flex items-center justify-center mx-auto mb-6 text-[#172A3A] group-hover:text-[#CE7A17] transition-colors duration-300 group-hover:scale-110 transform transition-transform">
                       {info.icon}
                     </div>
-                    <h3 className="font-semibold text-foreground mb-3 text-lg">{info.title}</h3>
-                    <p className="text-muted-foreground mb-4">{info.content}</p>
-                    <Button 
-                      variant="outline" 
+                    <h3 className="font-semibold text-[#172A3A] mb-3 text-lg">{info.title}</h3>
+                    <p className="text-gray-600 mb-4">{info.content}</p>
+                    <Button
+                      variant="outline"
                       size="sm"
-                      className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground group-hover:scale-105 transition-transform duration-300"
+                      className="border-2 border-gray-200 text-[#172A3A] hover:bg-[#CE7A17] hover:text-white hover:border-[#CE7A17] group-hover:scale-105 transition-transform duration-300"
                     >
                       {info.action}
                     </Button>

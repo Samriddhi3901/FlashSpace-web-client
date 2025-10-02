@@ -83,13 +83,15 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-[100] transition-all duration-300 ", // give header lower z than sidebar overlay (which uses 9999)
+        "fixed top-0 w-full z-[100] transition-all duration-300 text-md  ", // give header lower z than sidebar overlay (which uses 9999)
         scrolled
           ? "bg-white/95 supports-[backdrop-filter]:bg-white/65 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent backdrop-blur-sm"
+
       )}
+      style={{ fontFamily: 'instrument-serif' }}
     >
-      <div className="container mx-auto px-4 py-3">
+      <div className="container mx-auto px-4 py-3 ">
         <div className="flex items-center justify-between">
           {/* Left: Menu Button for All Screen Sizes + Logo */}
           <div className="flex items-center">
@@ -257,13 +259,13 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             {/* Language Selector */}
             <div className="hidden lg:flex items-center px-3 py-1.5 rounded-md border transition-colors duration-300 border-gray-300 text-black">
-              <span className="text-sm font-medium">IND</span>
+              <span className="text-sm font-black font-md">IND</span>
             </div>
             
             {/* Get in Touch Button */}
             <Button 
               onClick={() => handleNavigation("#contact")}
-              className="hidden lg:inline-flex px-4 py-2 text-sm rounded-md font-medium transition-all duration-300 bg-accent hover:bg-accent/90 text-black"
+              className="hidden lg:inline-flex px-4 py-2 text-md rounded-md font-bold transition-all duration-300 bg-accent hover:bg-accent/90 text-black"
             >
               Get in Touch
             </Button>
@@ -272,7 +274,8 @@ const Header = () => {
             <Button 
               onClick={() => handleNavigation("/login")}
               variant="outline"
-              className="hidden lg:inline-flex px-4 py-2 text-sm rounded-md font-medium transition-all duration-300 border-gray-300 text-black hover:bg-gray-50"
+              className="hidden lg:inline-flex px-4 py-2 text-md rounded-md font-bold transition-all duration-300 border-gray-300 text-black hover:bg-gray-50"
+              style={{ fontFamily: 'instrument-serif'  }}
             >
               Log in
             </Button>

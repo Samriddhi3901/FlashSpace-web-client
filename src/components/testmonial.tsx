@@ -5,17 +5,17 @@ const TestimonialsSection = () => {
   const isVisible = useScrollAnimation('testimonials');
   
   const companies = [
-    { name: "Addda 24/7", logo: "ADDDA 24/7" },
-    { name: "Study IQ", logo: "STUDY IQ" },
-    { name: "Flipkart", logo: "FLIPKART" },
-    { name: "Truly Madly", logo: "TRULY MADLY" },
-    { name: "Stage OTT", logo: "STAGE OTT" },
-    { name: "LUV Films", logo: "LUV FILMS" },
-    { name: "Callerdesk", logo: "CALLERDESK" },
-    { name: "Konsalidon", logo: "KONSALIDON" },
-    { name: "CareerGuide.com", logo: "CAREERGUIDE" },
-    { name: "Meritink", logo: "MERITINK" },
-    { name: "Anarock", logo: "ANAROCK" },
+    { name: "Addda 24/7", logo: "https://www.adda247.com/images/header-logo.svg" },
+    { name: "Study IQ", logo: "https://www.studyiq.com/" },
+    { name: "Flipkart", logo: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg" },
+    { name: "Truly Madly", logo: "https://cdni.trulymadly.com/tm-static-assets-production/web/logo.webp" },
+    { name: "Stage OTT", logo: "https://www.stage.in/_next/image?url=https%3A%2F%2Fmedia.stage.in%2Fstatic%2Fstage_logo_horizontal.webp&w=256&q=75" },
+    { name: "LUV Films", logo: "https://imgs.search.brave.com/7G5C_BpCTzsi0VtrsxHf0c5MLl_TAKS2brJhqLr3sus/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/Lmx1c2hhLmNvL2Qv/Y29tcGFueV8yOTc3/NTY4X2xvZ28uanBn" },
+    { name: "Callerdesk", logo: "https://imgs.search.brave.com/RsKEnJSz0P46UAeLN2ncHW4p6Ehae8obqu1of6ZaiD0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jYWxs/ZXJkZXNrLmlvL2lt/Zy9pbWFnZXMvY2Fs/bGVyX2xvZ28uc3Zn" },
+    { name: "Konsalidon", logo: "https://www.konsalidon.com/cdn/shop/files/Logo_-_Full_Height_-_Mono_White_copy_90x@2x.png?v=1642424736" },
+    { name: "CareerGuide.com", logo: "https://imgs.search.brave.com/dY7UddvEwHY109LX8HVNEpyVfQStVh07LOPOTsaU9KA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvODE0M2M1Y2Vk/YTEwNTJjNGJmNzA4/Y2U1NGViY2UxNWYx/NDQxYzU4YjgxMzVi/M2MzZDA1NzE1ZTg4/MTY2OWVkYi93d3cu/Y2FyZWVyZ3VpZGUu/Y29tLw" },
+    { name: "Meritink", logo: "https://res.cloudinary.com/diwna43hl/image/upload/v1735915447/meritink-logo_plokij.png" },
+    { name: "Anarock", logo: "https://res.cloudinary.com/diwna43hl/image/upload/v1735915447/anarock-logo_mnbvcx.png" },
   ];
 
   // Duplicate the array for seamless infinite scroll
@@ -43,62 +43,49 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-12 px-4 relative overflow-hidden">
-        {/* Background Images need to be imported and used properly */}
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url(${"/src/assets/testimonials-bg.jpg"})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        />
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-white/80" />
-      
+    <section id="testimonials" className="py-20 px-4 relative overflow-hidden bg-[#ffffff]">
+
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`}>
-            <span className="gradient-text-accent">Trusted by Industry Leaders</span>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+            <span className="text-[#172A3A]">Trusted by Industry Leaders</span>
             <br />
-            <span className="text-muted-foreground text-xl md:text-2xl font-content">Across India</span>
+            <span className="text-[#CE7A17] text-2xl md:text-3xl">Across India</span>
           </h2>
-          <p className={`text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed font-content ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
-            Join thousands of successful businesses who chose FlashSpace to accelerate their growth 
+          <p className={`text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-content ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
+            Join thousands of successful businesses who chose FlashSpace to accelerate their growth
             and establish their market presence with confidence.
           </p>
-          
-          {/* Floating Elements */}
-          <div className="relative">
-            <div className="absolute -top-10 left-1/4 w-8 h-8 bg-accent/20 rounded-full blur-sm animate-float"></div>
-            <div className="absolute -top-6 right-1/3 w-6 h-6 bg-primary/20 rounded-full blur-sm animate-float" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute -bottom-4 left-1/3 w-4 h-4 bg-accent/30 rounded-full blur-sm animate-float" style={{ animationDelay: '2s' }}></div>
-          </div>
         </div>
 
         {/* Company Logos Carousel */}
         <div className={`mb-12 overflow-hidden ${getAnimationClasses(isVisible, 'fadeIn', 300)}`}>
           <div className="relative">
             {/* Gradient Overlays */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10"></div>
-            
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+
             {/* Scrolling Logos */}
             <div className="infinite-scroll">
               {duplicatedCompanies.map((company, index) => (
-                <div 
+                <div
                   key={index}
                   className="flex-shrink-0 mx-6 flex items-center justify-center w-44 h-20"
                 >
-                  <div className="glass-card p-6 w-full h-full flex items-center justify-center hover:shadow-xl transition-all duration-300 border-primary/20 rounded-xl group hover:border-accent/30">
-                    <span className="text-sm font-bold text-primary group-hover:text-accent tracking-wider transition-colors duration-300 text-center">
-                      {company.logo}
-                    </span>
-                    
+                  <div className="bg-white border-2 border-gray-200 p-4 w-full h-full flex items-center justify-center hover:shadow-xl transition-all duration-300 rounded-xl group hover:border-[#CE7A17] relative overflow-hidden">
+                    <img
+                      src={company.logo}
+                      alt={company.logo}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                      onError={(e) => {
+                        // Fallback to text if image fails to load
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement!.innerHTML = `<span class=\"text-sm font-bold text-[#172A3A] group-hover:text-[#CE7A17] tracking-wider transition-colors duration-300 text-center\">${company.name}</span>`;
+                      }}
+                    />
                     {/* Subtle corner accent */}
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-accent/20 rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-[#CE7A17]/20 rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
               ))}
@@ -108,39 +95,39 @@ const TestimonialsSection = () => {
 
         {/* Client Testimonials */}
         <div className="text-center mb-8 mt-16">
-          <h3 className={`text-xl font-bold mb-4 gradient-text-primary font-header ${getAnimationClasses(isVisible, 'fadeInUp', 400)}`}>
-            Great People Trust Us
+          <h3 className={`text-2xl md:text-7xl font-black mb-4 text-[#172A3A] ${getAnimationClasses(isVisible, 'fadeInUp', 400)}`} style={{ fontFamily: 'instrument-serif' }}>
+            Great People <span className="text-[#CE7A17]">Trust Us</span>
           </h3>
-          <p className={`text-muted-foreground font-content ${getAnimationClasses(isVisible, 'fadeInUp', 500)}`}>
+          <p className={`text-gray-600 font-content ${getAnimationClasses(isVisible, 'fadeInUp', 500)}`}>
             Real stories from real businesses who transformed their operations with FlashSpace
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {testimonials.map((testimonial, index) => (
-            <Card 
+            <Card
               key={index}
-              className={`bg-card border-border shadow-lg hover:shadow-xl hover-lift border-primary/20 hover:border-primary/40 transition-all duration-500 ${getAnimationClasses(isVisible, 'fadeInUp', 600 + index * 100)}`}
+              className={`bg-white shadow-md hover:shadow-xl hover:scale-105 border-2 border-gray-200 hover:border-[#CE7A17] transition-all duration-500 ${getAnimationClasses(isVisible, 'fadeInUp', 600 + index * 100)}`}
             >
               <CardContent className="p-6">
                 {/* Quote */}
-                <div className="text-6xl text-primary/20 mb-4 font-serif">"</div>
-                <p className="text-muted-foreground leading-relaxed mb-4 font-content">
+                <div className="text-6xl text-[#CE7A17]/20 mb-4 font-serif">"</div>
+                <p className="text-gray-600 leading-relaxed mb-4 font-content">
                   {testimonial.text}
                 </p>
-                
+
                 {/* Author Info */}
-                <div className="border-t border-primary/20 pt-6">
+                <div className="border-t border-gray-200 pt-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full flex items-center justify-center">
-                      <span className="text-primary font-bold text-lg">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#172A3A]/15 to-[#CE7A17]/15 rounded-full flex items-center justify-center">
+                      <span className="text-[#172A3A] font-bold text-lg">
                         {testimonial.author.split(' ').map(name => name[0]).join('')}
                       </span>
                     </div>
                     <div>
-                      <div className="font-semibold text-foreground font-content">{testimonial.author}</div>
-                      <div className="text-sm text-muted-foreground font-content">{testimonial.position}</div>
-                      <div className="text-sm text-primary font-content">{testimonial.company}</div>
+                      <div className="font-semibold text-[#172A3A] font-content">{testimonial.author}</div>
+                      <div className="text-sm text-gray-600 font-content">{testimonial.position}</div>
+                      <div className="text-sm text-[#CE7A17] font-content">{testimonial.company}</div>
                     </div>
                   </div>
                 </div>
@@ -150,20 +137,32 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Stats */}
-        <Card className={`bg-card border-border shadow-lg border-primary/20 ${getAnimationClasses(isVisible, 'fadeInUp', 900)}`}>
-            <CardContent className="p-6">
-              <div className="grid grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-xl md:text-2xl font-bold gradient-text-accent mb-2">5000+</div>
-                <div className="text-muted-foreground font-content">Happy Clients</div>
+        <Card className={`bg-white border-2 border-gray-200 shadow-lg  ${getAnimationClasses(isVisible, 'fadeInUp', 900)}`}>
+            <CardContent className="p-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>5000+</div>
+                <div className="text-gray-600 font-content text-sm">Happy Clients</div>
               </div>
-              <div>
-                <div className="text-xl md:text-2xl font-bold gradient-text-accent mb-2">100+</div>
-                <div className="text-muted-foreground font-content">Cities Covered</div>
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>100+</div>
+                <div className="text-gray-600 font-content text-sm">Cities Covered</div>
               </div>
-              <div>
-                <div className="text-xl md:text-2xl font-bold gradient-text-accent mb-2">24/7</div>
-                <div className="text-muted-foreground font-content">Support</div>
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>24/7</div>
+                <div className="text-gray-600 font-content text-sm">Support Available</div>
+              </div>
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>10K+</div>
+                <div className="text-gray-600 font-content text-sm">Registrations Done</div>
+              </div>
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>98%</div>
+                <div className="text-gray-600 font-content text-sm">Satisfaction Rate</div>
+              </div>
+              <div className="group">
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>&lt;2min</div>
+                <div className="text-gray-600 font-content text-sm">Avg Response Time</div>
               </div>
             </div>
           </CardContent>

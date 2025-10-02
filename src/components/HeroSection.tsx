@@ -117,11 +117,12 @@ const HeroSection = () => {
       <div className="container mx-auto text-left relative z-20">
         {/* Hero Content */}
         <div className="max-w-4xl mb-8 relative">          
-          <h1 className="text-4xl md:text-7xl font-semibold  mb-6 leading-tight text-black animate-fade-in" style={{ fontFamily: 'poppins' }}>
+          <h1 className="text-4xl md:text-7xl font-semibold  mb-6 leading-tight text-black animate-fade-in" style={{ fontFamily: 'instrument-serif' }}>
             India's 1st  <span className=" text-[#000000]">AI Enabled,</span>
           </h1>
           
-          <p className="text-lg md:text-2xl text-black mb-8 leading-relaxed font-content animate-fade-in" style={{ animationDelay: '200ms' }}>
+          <p className="text-lg md:text-2xl text-black mb-8 leading-relaxed font-content animate-fade-in" style={{ animationDelay: '200ms', fontFamily: 'Geist'
+           }}>
             WorkSpace Provider with Enhanced Compliance Solutions
             <br />
             {/* with virtual offices starting from <span className="text-black font-bold">₹799/month.</span> */}

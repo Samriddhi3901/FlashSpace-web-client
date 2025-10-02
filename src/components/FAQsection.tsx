@@ -97,32 +97,26 @@ const FAQSection = () => {
   });
 
   return (
-    <section id="faq" className="py-20 px-4 relative overflow-hidden bg-gradient-to-br from-background via-card-hover to-background">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      </div>
-      
+    <section id="faq" className="py-20 px-4 relative overflow-hidden bg-[#ffffff]">
+
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`}>
-            Everything You Need to Know
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+            <span className="text-[#172A3A]">Everything You Need to Know</span>
             <br />
-            <span className="gradient-text-accent">FAQ</span>
+            <span className="text-[#CE7A17]">Frequently Asked Questions</span>
           </h2>
-          <div className={`flex items-center justify-center gap-2 text-xl text-muted-foreground max-w-3xl mx-auto ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
+          <div className={`flex items-center justify-center gap-2 text-xl text-gray-600 max-w-3xl mx-auto ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
             <span>Get instant answers to the most common questions about our virtual office solutions and services.</span>
-            <Sparkles className="w-6 h-6 text-accent animate-pulse" />
+            <Sparkles className="w-6 h-6 text-[#CE7A17] animate-pulse" />
           </div>
         </div>
 
         {/* Search and Filter */}
-        <Card className={`glass-card border-primary/20 mb-12 shadow-xl hover:shadow-2xl transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 300)}`}>
+        <Card className={`bg-white border-2 border-gray-200 mb-12 shadow-md hover:shadow-xl transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 300)}`}>
           <CardHeader className="pb-4">
-            <CardTitle className="text-center gradient-text-primary text-xl font-header">Find Your Answer</CardTitle>
+            <CardTitle className="text-center text-[#172A3A] text-2xl" style={{ fontFamily: 'instrument-serif' }}>Find Your Answer</CardTitle>
           </CardHeader>
           <CardContent className="space-y-8">
             {/* Search Bar */}
@@ -131,7 +125,7 @@ const FAQSection = () => {
                 placeholder="Search for questions, topics, or keywords..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="py-3 bg-secondary/50 border-primary/20 focus:border-accent/40 rounded-xl text-lg"
+                className="py-3 bg-gray-50 border-2 border-gray-200 focus:border-[#CE7A17] rounded-xl text-lg"
               />
             </div>
 
@@ -146,8 +140,8 @@ const FAQSection = () => {
                     className={`
                       group px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 justify-center
                       ${selectedCategory === category.key
-                        ? 'bg-gradient-to-r from-primary to-accent text-white glow-primary shadow-lg transform scale-105'
-                        : 'glass-card border-primary/20 text-muted-foreground hover:border-accent/30 hover:text-foreground hover:scale-105'
+                        ? 'bg-[#CE7A17] text-white shadow-lg transform scale-105'
+                        : 'bg-white border-2 border-gray-200 text-gray-600 hover:border-[#CE7A17] hover:text-[#172A3A] hover:scale-105'
                       }
                     `}
                   >
@@ -161,23 +155,23 @@ const FAQSection = () => {
         </Card>
 
         {/* FAQ Accordion */}
-        <Card className={`glass-card border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 500)}`}>
+        <Card className={`bg-white border-2 border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 500)}`}>
           <CardContent className="p-0">
             {filteredFaqs.length > 0 ? (
               <Accordion type="single" collapsible className="w-full">
                 {filteredFaqs.map((faq, index) => (
-                  <AccordionItem 
-                    key={faq.id} 
+                  <AccordionItem
+                    key={faq.id}
                     value={faq.id}
-                    className="border-b border-primary/10 last:border-b-0"
+                    className="border-b border-gray-200 last:border-b-0"
                   >
-                    <AccordionTrigger className="px-8 py-6 text-left hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 transition-all duration-300 group">
-                      <span className="font-semibold text-foreground pr-4 group-hover:text-primary transition-colors duration-300 text-lg">
+                    <AccordionTrigger className="px-8 py-6 text-left hover:bg-gradient-to-r hover:from-[#CE7A17]/5 hover:to-transparent transition-all duration-300 group">
+                      <span className="font-semibold text-[#172A3A] pr-4 group-hover:text-[#CE7A17] transition-colors duration-300 text-lg">
                         {faq.question}
                       </span>
                     </AccordionTrigger>
                     <AccordionContent className="px-8 pb-6">
-                      <div className="text-muted-foreground leading-relaxed text-lg bg-gradient-to-r from-card-hover to-transparent p-4 rounded-lg">
+                      <div className="text-gray-600 leading-relaxed text-lg bg-gray-50 p-4 rounded-lg">
                         {faq.answer}
                       </div>
                     </AccordionContent>
@@ -186,11 +180,11 @@ const FAQSection = () => {
               </Accordion>
             ) : (
               <div className="p-16 text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Search className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 bg-gradient-to-r from-[#172A3A]/15 to-[#CE7A17]/15 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Search className="w-10 h-10 text-[#172A3A]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 gradient-text-primary font-header">No results found</h3>
-                <p className="text-muted-foreground text-lg">
+                <h3 className="text-xl font-semibold mb-4 text-[#172A3A]" style={{ fontFamily: 'instrument-serif' }}>No results found</h3>
+                <p className="text-gray-600 text-lg">
                   Try adjusting your search terms or browse different categories.
                 </p>
               </div>
@@ -200,19 +194,19 @@ const FAQSection = () => {
 
         {/* Contact Support */}
         <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6 text-xl">
+          <p className="text-gray-600 mb-6 text-xl">
             Still have questions? Our support team is here to help!
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a 
-              href="#contact" 
-              className="btn-hero px-8 py-4 rounded-xl text-accent-foreground font-semibold inline-block transition-all duration-300 hover:scale-105 shadow-lg"
+            <a
+              href="#contact"
+              className="bg-[#CE7A17] hover:bg-[#172A3A] text-white px-8 py-4 rounded-xl font-semibold inline-block transition-all duration-300 hover:scale-105 shadow-lg"
             >
               Contact Support
             </a>
-            <a 
+            <a
               href="mailto:support@virtuhubconnect.com"
-              className="glass-card border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
+              className="bg-white border-2 border-gray-200 text-[#172A3A] hover:bg-[#172A3A] hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-md"
             >
               Email Us
             </a>

@@ -58,23 +58,19 @@ const JourneySection = () => {
   ];
 
   return (
-    <section id="journey" className="py-20 px-4 bg-gradient-to-br from-background via-card-hover to-background overflow-hidden relative">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      </div>
+    <section id="journey" className="py-20 px-4 bg-[#ffffff] overflow-hidden relative">
+      {/* Background Elements - Removed for clean white background */}
 
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-accent mb-4 animate-fade-in font-header">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#172A3A] mb-4 animate-fade-in" style={{ fontFamily: 'instrument-serif' }}>
             Your Success Story Begins Here
+            <br />
+            <span className="text-[#CE7A17]">The FlashSpace Journey</span>
           </h2>
-          <div className="flex items-center justify-center gap-2 text-xl md:text-2xl text-muted-foreground font-medium animate-fade-in font-content" style={{ animationDelay: '200ms' }}>
-            <span>The FlashSpace Journey</span>
-            <Sparkles className="w-8 h-8 text-accent animate-pulse" />
+          <div className="flex items-center justify-center gap-2 text-xl text-gray-600 font-medium animate-fade-in font-content" style={{ animationDelay: '200ms' }}>
+            <Sparkles className="w-6 h-6 text-[#CE7A17] animate-pulse" />
           </div>
         </div>
 
@@ -85,31 +81,31 @@ const JourneySection = () => {
             {journeySteps.map((step, index) => (
               <div key={index} className="flex flex-col items-center relative">
                 {/* Step Circle */}
-                <div 
+                <div
                   className={`
-                    w-32 h-32 rounded-full border-4 border-primary/20 glass-card
-                    flex flex-col items-center justify-center mb-6 relative group shadow-lg glow-primary
-                    transform transition-all duration-700 hover:scale-110 hover:border-accent/40 hover:shadow-xl
-                    ${isVisible 
-                      ? 'translate-y-0 opacity-100 scale-100' 
+                    w-32 h-32 rounded-full border-4 border-gray-200 bg-white
+                    flex flex-col items-center justify-center mb-6 relative group shadow-md
+                    transform transition-all duration-700 hover:scale-110 hover:border-[#CE7A17] hover:shadow-xl
+                    ${isVisible
+                      ? 'translate-y-0 opacity-100 scale-100'
                       : 'translate-y-10 opacity-0 scale-95'
                     }
                   `}
-                  style={{ 
+                  style={{
                     transitionDelay: isVisible ? `${step.delay}ms` : '0ms',
                     animationDelay: `${step.delay}ms`
                   }}
                 >
                   {/* Glow Effect */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/20 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#CE7A17]/10 to-[#172A3A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
                   {/* Icon */}
-                  <div className="relative z-10 mb-2 text-primary group-hover:text-accent transition-colors duration-300">
+                  <div className="relative z-10 mb-2 text-[#172A3A] group-hover:text-[#CE7A17] transition-colors duration-300">
                     {step.icon}
                   </div>
-                  
+
                   {/* Step Number */}
-                  <span className="text-accent font-bold text-sm relative z-10 group-hover:text-primary transition-colors duration-300">
+                  <span className="text-[#CE7A17] font-bold text-sm relative z-10 group-hover:text-[#172A3A] transition-colors duration-300">
                     {step.step}
                   </span>
                   
@@ -125,12 +121,12 @@ const JourneySection = () => {
                         {/* Base curved path */}
                         <path
                           d="M 0 32 Q 20 16, 40 32 T 80 32"
-                          stroke="hsl(var(--primary) / 0.3)"
+                          stroke="#E5E7EB"
                           strokeWidth="2"
                           fill="none"
                           strokeLinecap="round"
                         />
-                        
+
                         {/* Animated curved path */}
                         <path
                           d="M 0 32 Q 20 16, 40 32 T 80 32"
@@ -143,46 +139,46 @@ const JourneySection = () => {
                           className="transition-all duration-1000"
                           style={{ transitionDelay: `${step.delay + 300}ms` }}
                         />
-                        
+
                         {/* Arrow Head */}
                         <polygon
                           points="72,28 80,32 72,36 74,32"
-                          fill="hsl(var(--accent))"
+                          fill="#CE7A17"
                           className={`
                             transform transition-all duration-1000 origin-center
                             ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
                           `}
                           style={{ transitionDelay: `${step.delay + 800}ms` }}
                         />
-                        
+
                         {/* Gradient Definition */}
                         <defs>
                           <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="hsl(var(--primary))" />
-                            <stop offset="100%" stopColor="hsl(var(--accent))" />
+                            <stop offset="0%" stopColor="#172A3A" />
+                            <stop offset="100%" stopColor="#CE7A17" />
                           </linearGradient>
                         </defs>
                       </svg>
                       
                       {/* Sparkle Effects */}
-                      <div 
+                      <div
                         className={`
-                          absolute top-4 left-6 w-2 h-2 bg-accent rounded-full animate-pulse
+                          absolute top-4 left-6 w-2 h-2 bg-[#CE7A17] rounded-full animate-pulse
                           transform transition-all duration-1000
                           ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
                         `}
-                        style={{ 
+                        style={{
                           transitionDelay: `${step.delay + 600}ms`,
                           animationDelay: `${step.delay + 1000}ms`
                         }}
                       ></div>
-                      <div 
+                      <div
                         className={`
-                          absolute bottom-6 right-8 w-1.5 h-1.5 bg-primary rounded-full animate-pulse
+                          absolute bottom-6 right-8 w-1.5 h-1.5 bg-[#172A3A] rounded-full animate-pulse
                           transform transition-all duration-1000
                           ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
                         `}
-                        style={{ 
+                        style={{
                           transitionDelay: `${step.delay + 700}ms`,
                           animationDelay: `${step.delay + 1200}ms`
                         }}
@@ -192,12 +188,12 @@ const JourneySection = () => {
                 </div>
 
                 {/* Step Title */}
-                <div 
+                <div
                   className={`
-                    text-center text-foreground font-semibold text-lg max-w-32
+                    text-center text-[#172A3A] font-semibold text-lg max-w-32
                     transform transition-all duration-700
-                    ${isVisible 
-                      ? 'translate-y-0 opacity-100' 
+                    ${isVisible
+                      ? 'translate-y-0 opacity-100'
                       : 'translate-y-5 opacity-0'
                     }
                   `}
@@ -213,15 +209,15 @@ const JourneySection = () => {
           <div className="md:hidden space-y-8 mb-12">
             {journeySteps.map((step, index) => (
               <div key={index} className="flex items-center gap-6 relative">
-                <div className="w-20 h-20 rounded-full border-3 border-primary/20 glass-card flex flex-col items-center justify-center flex-shrink-0 shadow-lg glow-primary">
-                  <div className="mb-1 text-primary">
+                <div className="w-20 h-20 rounded-full border-3 border-gray-200 bg-white flex flex-col items-center justify-center flex-shrink-0 shadow-md">
+                  <div className="mb-1 text-[#172A3A]">
                     {step.icon}
                   </div>
-                  <span className="text-accent font-bold text-xs">
+                  <span className="text-[#CE7A17] font-bold text-xs">
                     {step.step}
                   </span>
                 </div>
-                <div className="text-foreground font-semibold text-lg">
+                <div className="text-[#172A3A] font-semibold text-lg">
                   {step.title}
                 </div>
                 
@@ -237,12 +233,12 @@ const JourneySection = () => {
                       {/* Base curved path */}
                       <path
                         d="M 16 0 Q 8 20, 16 32 T 16 64"
-                        stroke="hsl(var(--primary) / 0.3)"
+                        stroke="#E5E7EB"
                         strokeWidth="2"
                         fill="none"
                         strokeLinecap="round"
                       />
-                      
+
                       {/* Animated curved path */}
                       <path
                         d="M 16 0 Q 8 20, 16 32 T 16 64"
@@ -254,19 +250,19 @@ const JourneySection = () => {
                         strokeDashoffset="0"
                         className="animate-pulse"
                       />
-                      
+
                       {/* Arrow Head */}
                       <polygon
                         points="12,56 16,64 20,56 16,60"
-                        fill="hsl(var(--accent))"
+                        fill="#CE7A17"
                         className="animate-pulse"
                       />
-                      
+
                       {/* Gradient Definition */}
                       <defs>
                         <linearGradient id="mobileArrowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" stopColor="hsl(var(--primary))" />
-                          <stop offset="100%" stopColor="hsl(var(--accent))" />
+                          <stop offset="0%" stopColor="#172A3A" />
+                          <stop offset="100%" stopColor="#CE7A17" />
                         </linearGradient>
                       </defs>
                     </svg>
@@ -278,13 +274,13 @@ const JourneySection = () => {
 
           {/* CTA Button */}
           <div className="text-center">
-            <Button 
+            <Button
               className={`
-                btn-hero px-12 py-4 rounded-full font-bold text-lg
+                bg-[#CE7A17] hover:bg-[#172A3A] text-white px-12 py-4 rounded-lg font-bold text-lg
                 transform hover:scale-105 transition-all duration-300
                 shadow-lg hover:shadow-xl animate-fade-in
               `}
-              style={{ animationDelay: '1000ms' }}
+              style={{ animationDelay: '1000ms', fontFamily: 'instrument-serif' }}
             >
               START YOUR JOURNEY TODAY
             </Button>

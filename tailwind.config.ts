@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animatePlugin from 'tailwindcss-animate';
 
 export default {
   darkMode: ["class"],
@@ -52,9 +53,11 @@ export default {
         },
       },
       fontFamily: {
-        'header': ['Poppins', 'sans-serif'],
-        'content': ['Inter', 'sans-serif'],
-        'sans': ['Inter', 'sans-serif'],
+        // Geist as primary font across the app; fallbacks retained
+        header: ['Geist', 'Poppins', 'Inter', 'sans-serif'],
+        content: ['Geist', 'Inter', 'sans-serif'],
+        sans: ['Geist', 'system-ui', 'sans-serif'],
+        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -128,5 +131,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animatePlugin],
 } satisfies Config;

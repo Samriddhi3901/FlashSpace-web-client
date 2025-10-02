@@ -3,6 +3,37 @@
 @tailwind utilities;
 
 /* Custom Font - c4b700 */
+/* Geist Font (Local or CDN fallback) */
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
 @font-face {
   font-family: 'c4b700';
   src: url('./assets/fonts/c4b700dcb2187787-s.p.woff2') format('woff2'),
@@ -22,6 +53,11 @@
   src: url("./assets//fonts/Poppins-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'instrument-serif';
+  src: url('./assets/fonts/InstrumentSerif-Regular.ttf') format('woff2'),
+       url('./assets/fonts/InstrumentSerif-Regular.ttf') format('truetype');
+}
 /* Removed Locomotive Scroll overrides */
 
 /* VirtuHub Connect Design System - FlashSpace Branding */
@@ -154,6 +190,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: 'Geist', 'Inter', 'system-ui', sans-serif;
     background: hsl(var(--background));
     min-height: 100vh;
   }
