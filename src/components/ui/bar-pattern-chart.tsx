@@ -38,7 +38,7 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "#CE7A17", // site orange
+    color: "#EDB003", // site orange
   },
   mobile: {
     label: "Mobile",
@@ -54,13 +54,13 @@ export function BarPatternChart() {
           Bar Area Chart
           <Badge
             variant="outline"
-            className="text-[#CE7A17] bg-[#CE7A17]/10 border-none ml-2 font-semibold"
+            className="text-[#EDB003] bg-[#EDB003]/10 border-none ml-2 font-semibold"
           >
-            <TrendingDown className="h-4 w-4 mr-1 text-[#CE7A17]" />
+            <TrendingDown className="h-4 w-4 mr-1 text-[#EDB003]" />
             <span>-5.2%</span>
           </Badge>
         </CardTitle>
-        <CardDescription className="text-[#CE7A17]">
+        <CardDescription className="text-[#EDB003]">
           Showing total visitors for the last 6 months
         </CardDescription>
       </CardHeader>
@@ -77,7 +77,7 @@ export function BarPatternChart() {
               axisLine={false}
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
-              stroke="#CE7A17"
+              stroke="#EDB003"
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <Area
@@ -94,7 +94,7 @@ export function BarPatternChart() {
               type="natural"
               fill={"url(#bar-background-pattern-desktop)"}
               fillOpacity={0.4}
-              stroke="#CE7A17"
+              stroke="#EDB003"
               stackId="a"
               strokeWidth={1.2}
             />

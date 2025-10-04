@@ -67,10 +67,10 @@ const JourneySection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-[#172A3A] mb-4 animate-fade-in" style={{ fontFamily: 'Poppins' }}>
             Your Success Story Begins Here
             <br />
-            <span className="text-[#CE7A17]">The FlashSpace Journey</span>
+            <span className="text-[#EDB003]">The FlashSpace Journey</span>
           </h2>
           <div className="flex items-center justify-center gap-2 text-xl text-gray-600 font-medium animate-fade-in font-content" style={{ animationDelay: '200ms' }}>
-            <Sparkles className="w-6 h-6 text-[#CE7A17] animate-pulse" />
+            <Sparkles className="w-6 h-6 text-[#EDB003] animate-pulse" />
           </div>
         </div>
 
@@ -85,7 +85,7 @@ const JourneySection = () => {
                   className={`
                     w-32 h-32 rounded-full border-4 border-gray-200 bg-white
                     flex flex-col items-center justify-center mb-6 relative group shadow-md
-                    transform transition-all duration-700 hover:scale-110 hover:border-[#CE7A17] hover:shadow-xl
+                    transform transition-all duration-700 hover:scale-110 hover:border-[#EDB003] hover:shadow-xl
                     ${isVisible
                       ? 'translate-y-0 opacity-100 scale-100'
                       : 'translate-y-10 opacity-0 scale-95'
@@ -97,15 +97,15 @@ const JourneySection = () => {
                   }}
                 >
                   {/* Glow Effect */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#CE7A17]/10 to-[#172A3A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#EDB003]/10 to-[#172A3A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Icon */}
-                  <div className="relative z-10 mb-2 text-[#172A3A] group-hover:text-[#CE7A17] transition-colors duration-300">
+                  <div className="relative z-10 mb-2 text-[#172A3A] group-hover:text-[#EDB003] transition-colors duration-300">
                     {step.icon}
                   </div>
 
                   {/* Step Number */}
-                  <span className="text-[#CE7A17] font-bold text-sm relative z-10 group-hover:text-[#172A3A] transition-colors duration-300">
+                  <span className="text-[#EDB003] font-bold text-sm relative z-10 group-hover:text-[#172A3A] transition-colors duration-300">
                     {step.step}
                   </span>
                   
@@ -143,7 +143,7 @@ const JourneySection = () => {
                         {/* Arrow Head */}
                         <polygon
                           points="72,28 80,32 72,36 74,32"
-                          fill="#CE7A17"
+                          fill="#EDB003"
                           className={`
                             transform transition-all duration-1000 origin-center
                             ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
@@ -155,7 +155,7 @@ const JourneySection = () => {
                         <defs>
                           <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stopColor="#172A3A" />
-                            <stop offset="100%" stopColor="#CE7A17" />
+                            <stop offset="100%" stopColor="#EDB003" />
                           </linearGradient>
                         </defs>
                       </svg>
@@ -163,7 +163,7 @@ const JourneySection = () => {
                       {/* Sparkle Effects */}
                       <div
                         className={`
-                          absolute top-4 left-6 w-2 h-2 bg-[#CE7A17] rounded-full animate-pulse
+                          absolute top-4 left-6 w-2 h-2 bg-[#EDB003] rounded-full animate-pulse
                           transform transition-all duration-1000
                           ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
                         `}
@@ -213,7 +213,7 @@ const JourneySection = () => {
                   <div className="mb-1 text-[#172A3A]">
                     {step.icon}
                   </div>
-                  <span className="text-[#CE7A17] font-bold text-xs">
+                  <span className="text-[#EDB003] font-bold text-xs">
                     {step.step}
                   </span>
                 </div>
@@ -254,7 +254,7 @@ const JourneySection = () => {
                       {/* Arrow Head */}
                       <polygon
                         points="12,56 16,64 20,56 16,60"
-                        fill="#CE7A17"
+                        fill="#EDB003"
                         className="animate-pulse"
                       />
 
@@ -262,7 +262,7 @@ const JourneySection = () => {
                       <defs>
                         <linearGradient id="mobileArrowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                           <stop offset="0%" stopColor="#172A3A" />
-                          <stop offset="100%" stopColor="#CE7A17" />
+                          <stop offset="100%" stopColor="#EDB003" />
                         </linearGradient>
                       </defs>
                     </svg>
@@ -276,7 +276,7 @@ const JourneySection = () => {
           <div className="text-center">
             <Button
               className={`
-                bg-[#CE7A17] hover:bg-[#172A3A] text-white px-12 py-4 rounded-lg font-bold text-lg
+                bg-[#EDB003] hover:bg-[#172A3A] text-white px-12 py-4 rounded-lg font-bold text-lg
                 transform hover:scale-105 transition-all duration-300
                 shadow-lg hover:shadow-xl animate-fade-in
               `}

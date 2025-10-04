@@ -53,10 +53,10 @@ export default {
         },
       },
       fontFamily: {
-        // Geist as primary font across the app; fallbacks retained
-        header: ['Geist', 'Poppins', 'Inter', 'sans-serif'],
-        content: ['Geist', 'Inter', 'sans-serif'],
-        sans: ['Geist', 'system-ui', 'sans-serif'],
+        // Lexend for headers, PT Serif for body text
+        header: ['Lexend', 'sans-serif'],
+        content: ['PT Serif', 'Georgia', 'serif'],
+        sans: ['PT Serif', 'Georgia', 'serif'],
         mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       borderRadius: {

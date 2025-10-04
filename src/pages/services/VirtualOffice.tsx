@@ -412,7 +412,7 @@ const VirtualOffice = () => {
           {/* Split Layout: Cards on Left, Map on Right */}
           <div className={`flex gap-6 mb-8 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'}`}>
             {/* Left Side: Virtual Office Listings */}
-            <div className={`w-[55%] space-y-4 max-h-[calc(100vh-250px)] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-[#CE7A17] scrollbar-track-gray-100`}>
+            <div className={`w-[55%] space-y-4 max-h-[calc(100vh-250px)] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-[#EDB003] scrollbar-track-gray-100`}>
             {cityOffices.map((office) => {
               let imageSrc = "";
               switch (office.name) {
@@ -554,7 +554,7 @@ const VirtualOffice = () => {
                   {/* Marker 1 - Top Left */}
                   <div className="absolute top-[25%] left-[30%]">
                     <div className="relative animate-bounce">
-                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <MapPin className="w-8 h-8 text-[#EDB003] drop-shadow-lg fill-[#EDB003]" />
                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
                         ₹8,000/mo
                       </div>
@@ -564,7 +564,7 @@ const VirtualOffice = () => {
                   {/* Marker 2 - Center */}
                   <div className="absolute top-[45%] left-[50%]">
                     <div className="relative animate-bounce" style={{ animationDelay: '0.2s' }}>
-                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <MapPin className="w-8 h-8 text-[#EDB003] drop-shadow-lg fill-[#EDB003]" />
                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
                         ₹12,500/mo
                       </div>
@@ -574,7 +574,7 @@ const VirtualOffice = () => {
                   {/* Marker 3 - Bottom Right */}
                   <div className="absolute top-[65%] left-[70%]">
                     <div className="relative animate-bounce" style={{ animationDelay: '0.4s' }}>
-                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <MapPin className="w-8 h-8 text-[#EDB003] drop-shadow-lg fill-[#EDB003]" />
                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
                         ₹10,000/mo
                       </div>
@@ -584,7 +584,7 @@ const VirtualOffice = () => {
                   {/* Marker 4 - Top Right */}
                   <div className="absolute top-[20%] left-[75%]">
                     <div className="relative animate-bounce" style={{ animationDelay: '0.6s' }}>
-                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <MapPin className="w-8 h-8 text-[#EDB003] drop-shadow-lg fill-[#EDB003]" />
                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
                         ₹15,000/mo
                       </div>
@@ -594,7 +594,7 @@ const VirtualOffice = () => {
                   {/* Marker 5 - Bottom Left */}
                   <div className="absolute top-[70%] left-[25%]">
                     <div className="relative animate-bounce" style={{ animationDelay: '0.8s' }}>
-                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <MapPin className="w-8 h-8 text-[#EDB003] drop-shadow-lg fill-[#EDB003]" />
                       <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
                         ₹9,500/mo
                       </div>
@@ -622,7 +622,7 @@ const VirtualOffice = () => {
                 {/* Map Legend */}
                 <div className="absolute bottom-4 left-4 bg-white rounded-lg shadow-md px-3 py-2 text-xs">
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#CE7A17] fill-[#CE7A17]" />
+                    <MapPin className="w-4 h-4 text-[#EDB003] fill-[#EDB003]" />
                     <span className="font-medium text-gray-700">Virtual Office Locations</span>
                   </div>
                 </div>
