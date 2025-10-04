@@ -143,6 +143,16 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --d-bg: 0 0% 100%;
+
+    --d-muted: 0 0% 90%;
+
+    --d-fg: 0 0% 0%;
+
+    --d-border: 0 0% 90%;
+
+    --d-sheet: 0 0% 98%;
   }
 
   .dark {
@@ -181,6 +191,11 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --d-bg: 0 0% 10%;
+    --d-muted: 0 0% 20%;
+    --d-fg: 0 0% 100%;
+    --d-border: 0 0% 20%;
+    --d-sheet: 0 0% 12%;
   }
 }
 

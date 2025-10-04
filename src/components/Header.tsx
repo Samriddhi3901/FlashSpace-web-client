@@ -2,10 +2,13 @@
 import { smoothScrollTo } from "@/lib/lenis";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import Splash3dButton from "@/components/ui/3d-splash-button";
 import { X, Phone, Building2, Users, Zap, FileText, UserCheck, ArrowRight } from "lucide-react";
 import { CiMenuFries } from "react-icons/ci";
 // Use alias import to avoid case-sensitive path confusion across environments
 import SidebarMenu from "@/components/SidebarMenu";
+import Index from "@/pages/Index";
+import Splash3dButtonDemo from "./ui/3d-splash-button/demo";
 // import FileUploadButton from "./FileUploadButton";
 // Using uploaded FlashSpace logo
 
@@ -260,14 +263,12 @@ const Header = () => {
             </div>
             
             {/* Get in Touch Button */}
-            <Button 
+            <Splash3dButton
               onClick={() => handleNavigation("#contact")}
-              className="hidden lg:inline-flex px-4 py-2 text-sm rounded-md  transition-all duration-300 bg-accent hover:bg-accent/90 text-black"
+              className="hidden lg:inline-flex relative px-6 py-2.5 text-base rounded-lg font-bold bg-[#ededed] text-[#222] border border-gray-300 shadow-[0_2px_8px_0_rgba(0,0,0,0.10)] hover:shadow-[0_4px_16px_0_rgba(0,0,0,0.13)] active:translate-y-1 transition-all duration-150 before:content-[''] before:absolute before:inset-0 before:rounded-lg before:shadow-[inset_0_1.5px_0_0_#fff,inset_0_-2px_8px_0_#d1d5db] before:pointer-events-none"
             >
               Get in Touch
-            </Button>
-            
-            {/* Log in Button */}
+            </Splash3dButton>
             <Button 
               onClick={() => handleNavigation("/login")}
               variant="outline"
