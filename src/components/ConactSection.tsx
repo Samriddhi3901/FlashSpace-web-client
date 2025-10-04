@@ -94,7 +94,7 @@ const ContactSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'Poppins' }}>
             <span className="text-[#172A3A]">Ready to Transform Your Business?</span>
             <br />
             <span className="text-[#CE7A17]">Let's Connect!</span>

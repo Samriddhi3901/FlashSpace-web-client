@@ -45,10 +45,10 @@ const StartChatting = () => {
       icon: FileText,
       color: 'text-white'
     },
-    { 
-      title: 'Compliance tools', 
+    {
+      title: 'Compliance tools',
       subtitle: 'Stay legally compliant',
-      bg: 'bg-orange-500',
+      bg: 'bg-[#EDB003]',
       icon: Briefcase,
       color: 'text-white'
     }
@@ -151,8 +151,8 @@ const StartChatting = () => {
                   <div className="text-sm font-medium text-gray-900 group-hover:text-green-600">Compare workspace plans</div>
                   <div className="text-xs text-gray-500 mt-1">Find the best deal</div>
                 </button>
-                <button className="p-4 bg-white border-2 border-gray-200 rounded-2xl text-left hover:border-orange-400 hover:shadow-lg transition-all group">
-                  <div className="text-sm font-medium text-gray-900 group-hover:text-orange-600">Business compliance</div>
+                <button className="p-4 bg-white border-2 border-gray-200 rounded-2xl text-left hover:border-[#EDB003] hover:shadow-lg transition-all group">
+                  <div className="text-sm font-medium text-gray-900 group-hover:text-[#EDB003]">Business compliance</div>
                   <div className="text-xs text-gray-500 mt-1">Check requirements</div>
                 </button>
               </div>

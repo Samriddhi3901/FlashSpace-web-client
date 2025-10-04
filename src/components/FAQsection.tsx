@@ -102,7 +102,7 @@ const FAQSection = () => {
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'Poppins' }}>
             <span className="text-[#172A3A]">Everything You Need to Know</span>
             <br />
             <span className="text-[#CE7A17]">Frequently Asked Questions</span>
@@ -116,7 +116,7 @@ const FAQSection = () => {
         {/* Search and Filter */}
         <Card className={`bg-white border-2 border-gray-200 mb-12 shadow-md hover:shadow-xl transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 300)}`}>
           <CardHeader className="pb-4">
-            <CardTitle className="text-center text-[#172A3A] text-2xl" style={{ fontFamily: 'instrument-serif' }}>Find Your Answer</CardTitle>
+            <CardTitle className="text-center text-[#172A3A] text-2xl" style={{ fontFamily: 'Poppins' }}>Find Your Answer</CardTitle>
           </CardHeader>
           <CardContent className="space-y-8">
             {/* Search Bar */}
@@ -183,7 +183,7 @@ const FAQSection = () => {
                 <div className="w-20 h-20 bg-gradient-to-r from-[#172A3A]/15 to-[#CE7A17]/15 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Search className="w-10 h-10 text-[#172A3A]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-[#172A3A]" style={{ fontFamily: 'instrument-serif' }}>No results found</h3>
+                <h3 className="text-xl font-semibold mb-4 text-[#172A3A]" style={{ fontFamily: 'Poppins' }}>No results found</h3>
                 <p className="text-gray-600 text-lg">
                   Try adjusting your search terms or browse different categories.
                 </p>

@@ -54,9 +54,10 @@
 }
 
 @font-face {
-  font-family: 'instrument-serif';
-  src: url('./assets/fonts/InstrumentSerif-Regular.ttf') format('woff2'),
-       url('./assets/fonts/InstrumentSerif-Regular.ttf') format('truetype');
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
 }
 /* Removed Locomotive Scroll overrides */
 
@@ -370,5 +371,16 @@
   }
   50% { 
     transform: translateY(-8px); 
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

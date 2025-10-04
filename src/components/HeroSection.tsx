@@ -117,7 +117,7 @@ const HeroSection = () => {
       <div className="container mx-auto text-left relative z-20">
         {/* Hero Content */}
         <div className="max-w-4xl mb-8 relative">          
-          <h1 className="text-4xl md:text-7xl font-semibold  mb-6 leading-tight text-black animate-fade-in" style={{ fontFamily: 'instrument-serif' }}>
+          <h1 className="text-4xl md:text-7xl font-semibold  mb-6 leading-tight text-black animate-fade-in" style={{ fontFamily: 'Poppins' }}>
             India's 1st  <span className=" text-[#000000]">AI Enabled,</span>
           </h1>
           

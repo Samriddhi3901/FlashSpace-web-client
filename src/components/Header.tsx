@@ -89,37 +89,34 @@ const Header = () => {
           : "bg-transparent backdrop-blur-sm"
 
       )}
-      style={{ fontFamily: 'instrument-serif' }}
+      style={{ fontFamily: 'Poppins' }}
     >
-      <div className="container mx-auto px-4 py-3 ">
-        <div className="flex items-center justify-between">
-          {/* Left: Menu Button for All Screen Sizes + Logo */}
-          <div className="flex items-center">
-            {/* Menu Button - Now visible on all screen sizes */}
-            <button
-              className="p-2 mr-4 rounded-md hover:bg-black/5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black/20"
-              aria-label="Open menu"
-              aria-expanded={isMenuOpen}
-              aria-controls="flashspace-fullmenu"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <CiMenuFries className="h-6 w-6 text-black" />
-            </button>
+      <div className="w-full px-4 py-3">
+        <div className="flex items-center">
+          {/* Menu Button - Extreme Left */}
+          <button
+            className="p-2 rounded-md hover:bg-black/5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black/20 flex-shrink-0 -ml-2"
+            aria-label="Open menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="flashspace-fullmenu"
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <CiMenuFries className="h-6 w-6 text-black" />
+          </button>
 
-            {/* Logo */}
-            <div className="text-xl font-bold tracking-tight cursor-pointer w-60" onClick={() => handleNavigation("/")} >
-              <span className="text-black transition-colors duration-300">
-                <img 
-                  src="https://cdn.prod.website-files.com/664330484432dcdd6519a8fd/665dd8e0007de68a44f3750b_Black%20and%20White%20Bold%20Typography%20Clothing%20Brand%20Logo%20(940%20x%20400%20px)%20(940%20x%20200%20px)%20(940%20x%20150%20px).png" 
-                  alt="FlashSpace Logo"
-                  className="h-8 w-auto" 
-                />
-              </span>
-            </div>
+          {/* Logo */}
+          <div className="text-xl font-bold tracking-tight cursor-pointer w-60 flex-shrink-0 ml-2" onClick={() => handleNavigation("/")} >
+            <span className="text-black transition-colors duration-300">
+              <img 
+                src="https://cdn.prod.website-files.com/664330484432dcdd6519a8fd/665dd8e0007de68a44f3750b_Black%20and%20White%20Bold%20Typography%20Clothing%20Brand%20Logo%20(940%20x%20400%20px)%20(940%20x%20200%20px)%20(940%20x%20150%20px).png" 
+                alt="FlashSpace Logo"
+                className="h-8 w-auto" 
+              />
+            </span>
           </div>
 
           {/* Center: Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 mx-8">
+          <nav className="hidden lg:flex items-center justify-center space-x-8 mx-8 flex-1">
             {/* All Solutions Dropdown */}
             <div
               ref={dropdownRef}
@@ -130,7 +127,7 @@ const Header = () => {
               }}
             >
               <button
-                className="text-md  font-semibold font-content flex items-center gap-1 cursor-pointer transition-colors duration-300 text-black hover:text-primary"
+                className="text-md font-semibold font-content flex items-center gap-1 cursor-pointer transition-colors duration-300 text-black hover:text-primary"
                 onClick={() => setIsDropdownOpen((open) => !open)}
                 aria-haspopup="true"
                 aria-expanded={isDropdownOpen}
@@ -256,16 +253,16 @@ const Header = () => {
           </nav>
 
           {/* Right: Language, CTA Buttons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 ml-auto">
             {/* Language Selector */}
             <div className="hidden lg:flex items-center px-3 py-1.5 rounded-md border transition-colors duration-300 border-gray-300 text-black">
-              <span className="text-sm font-black font-md">IND</span>
+              <span className="text-sm font-md">IND</span>
             </div>
             
             {/* Get in Touch Button */}
             <Button 
               onClick={() => handleNavigation("#contact")}
-              className="hidden lg:inline-flex px-4 py-2 text-md rounded-md font-bold transition-all duration-300 bg-accent hover:bg-accent/90 text-black"
+              className="hidden lg:inline-flex px-4 py-2 text-sm rounded-md  transition-all duration-300 bg-accent hover:bg-accent/90 text-black"
             >
               Get in Touch
             </Button>
@@ -274,8 +271,8 @@ const Header = () => {
             <Button 
               onClick={() => handleNavigation("/login")}
               variant="outline"
-              className="hidden lg:inline-flex px-4 py-2 text-md rounded-md font-bold transition-all duration-300 border-gray-300 text-black hover:bg-gray-50"
-              style={{ fontFamily: 'instrument-serif'  }}
+              className="hidden lg:inline-flex px-4 py-2 text-sm rounded-md  transition-all duration-300 border-gray-300 text-black hover:bg-gray-50"
+              style={{ fontFamily: 'Poppins'  }}
             >
               Log in
             </Button>

@@ -409,8 +409,10 @@ const VirtualOffice = () => {
             </div>
           </div>
 
-          {/* Virtual Office Listings */}
-          <div className={`grid gap-4 mb-8 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'} ${viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"}`}>
+          {/* Split Layout: Cards on Left, Map on Right */}
+          <div className={`flex gap-6 mb-8 relative z-30 transition-opacity duration-300 ${isSearchFocused ? 'opacity-50' : 'opacity-100'}`}>
+            {/* Left Side: Virtual Office Listings */}
+            <div className={`w-[55%] space-y-4 max-h-[calc(100vh-250px)] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-[#CE7A17] scrollbar-track-gray-100`}>
             {cityOffices.map((office) => {
               let imageSrc = "";
               switch (office.name) {
@@ -445,7 +447,7 @@ const VirtualOffice = () => {
                     {/* Badges */}
                     <div className="absolute top-3 left-3 flex gap-2">
                       {office.popular && (
-                        <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded font-medium">
+                        <span className="bg-[#EDB003] text-white text-xs px-2 py-1 rounded font-medium">
                           🔥 Popular
                         </span>
                       )}
@@ -514,6 +516,118 @@ const VirtualOffice = () => {
                 </Card>
               );
             })}
+            </div>
+
+            {/* Right Side: Google Map Mockup - Full Height */}
+            <div className="w-[45%] sticky top-4">
+              <div className="relative w-full h-[calc(100vh-200px)] rounded-xl overflow-hidden shadow-xl border-2 border-gray-300">
+                {/* Map Header Controls */}
+                <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between">
+                  <div className="bg-white rounded-lg shadow-md px-4 py-2 flex items-center gap-2">
+                    <Search className="w-4 h-4 text-gray-500" />
+                    <input 
+                      type="text" 
+                      placeholder="Search in map..."
+                      className="border-none outline-none text-sm w-64"
+                      disabled
+                    />
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="secondary" className="bg-white shadow-md">
+                      🗺️ Map
+                    </Button>
+                    <Button size="sm" variant="ghost" className="bg-white shadow-md">
+                      🛰️ Satellite
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Map Image Mockup */}
+                <img 
+                  src="https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png" 
+                  alt="Google Maps View" 
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Map Markers Overlay - Simulating pins */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Marker 1 - Top Left */}
+                  <div className="absolute top-[25%] left-[30%]">
+                    <div className="relative animate-bounce">
+                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
+                        ₹8,000/mo
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Marker 2 - Center */}
+                  <div className="absolute top-[45%] left-[50%]">
+                    <div className="relative animate-bounce" style={{ animationDelay: '0.2s' }}>
+                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
+                        ₹12,500/mo
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Marker 3 - Bottom Right */}
+                  <div className="absolute top-[65%] left-[70%]">
+                    <div className="relative animate-bounce" style={{ animationDelay: '0.4s' }}>
+                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
+                        ₹10,000/mo
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Marker 4 - Top Right */}
+                  <div className="absolute top-[20%] left-[75%]">
+                    <div className="relative animate-bounce" style={{ animationDelay: '0.6s' }}>
+                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
+                        ₹15,000/mo
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Marker 5 - Bottom Left */}
+                  <div className="absolute top-[70%] left-[25%]">
+                    <div className="relative animate-bounce" style={{ animationDelay: '0.8s' }}>
+                      <MapPin className="w-8 h-8 text-[#CE7A17] drop-shadow-lg fill-[#CE7A17]" />
+                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded shadow-lg text-xs whitespace-nowrap font-medium">
+                        ₹9,500/mo
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Zoom Controls */}
+                <div className="absolute bottom-24 right-4 z-10 flex flex-col gap-2">
+                  <Button size="sm" variant="secondary" className="bg-white shadow-md w-10 h-10 p-0">
+                    +
+                  </Button>
+                  <Button size="sm" variant="secondary" className="bg-white shadow-md w-10 h-10 p-0">
+                    −
+                  </Button>
+                </div>
+
+                {/* My Location Button */}
+                <div className="absolute bottom-4 right-4 z-10">
+                  <Button size="sm" variant="secondary" className="bg-white shadow-md rounded-full w-10 h-10 p-0">
+                    📍
+                  </Button>
+                </div>
+
+                {/* Map Legend */}
+                <div className="absolute bottom-4 left-4 bg-white rounded-lg shadow-md px-3 py-2 text-xs">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-[#CE7A17] fill-[#CE7A17]" />
+                    <span className="font-medium text-gray-700">Virtual Office Locations</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Consultant Section */}

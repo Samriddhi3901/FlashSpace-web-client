@@ -48,7 +48,7 @@ const TestimonialsSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'Poppins' }}>
             <span className="text-[#172A3A]">Trusted by Industry Leaders</span>
             <br />
             <span className="text-[#CE7A17] text-2xl md:text-3xl">Across India</span>
@@ -95,7 +95,7 @@ const TestimonialsSection = () => {
 
         {/* Client Testimonials */}
         <div className="text-center mb-8 mt-16">
-          <h3 className={`text-2xl md:text-7xl font-black mb-4 text-[#172A3A] ${getAnimationClasses(isVisible, 'fadeInUp', 400)}`} style={{ fontFamily: 'instrument-serif' }}>
+          <h3 className={`text-2xl md:text-7xl font-black mb-4 text-[#172A3A] ${getAnimationClasses(isVisible, 'fadeInUp', 400)}`} style={{ fontFamily: 'Poppins' }}>
             Great People <span className="text-[#CE7A17]">Trust Us</span>
           </h3>
           <p className={`text-gray-600 font-content ${getAnimationClasses(isVisible, 'fadeInUp', 500)}`}>
@@ -141,27 +141,27 @@ const TestimonialsSection = () => {
             <CardContent className="p-8">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>5000+</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Poppins' }}>5000+</div>
                 <div className="text-gray-600 font-content text-sm">Happy Clients</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>100+</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Poppins' }}>100+</div>
                 <div className="text-gray-600 font-content text-sm">Cities Covered</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>24/7</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Poppins' }}>24/7</div>
                 <div className="text-gray-600 font-content text-sm">Support Available</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>10K+</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Poppins' }}>10K+</div>
                 <div className="text-gray-600 font-content text-sm">Registrations Done</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>98%</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Poppins' }}>98%</div>
                 <div className="text-gray-600 font-content text-sm">Satisfaction Rate</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>&lt;2min</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Poppins' }}>&lt;2min</div>
                 <div className="text-gray-600 font-content text-sm">Avg Response Time</div>
               </div>
             </div>

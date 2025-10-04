@@ -12,7 +12,7 @@ const ImmediateAssistanceSection = () => {
         <div className="max-w-3xl mx-auto">
           <Card className={`bg-gradient-to-br from-[#CE7A17] to-[#172A3A] border-0 shadow-xl hover:shadow-2xl transition-all duration-500 ${getAnimationClasses(isVisible, 'scale', 0)}`}>
             <CardContent className="p-12 text-center">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'instrument-serif' }}>
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'Poppins' }}>
                 Need Immediate <span className="text-yellow-300">Assistance?</span>
               </h3>
               <p className="text-white/90 mb-8 text-xl">Our support team is available 24/7 to help you get started</p>

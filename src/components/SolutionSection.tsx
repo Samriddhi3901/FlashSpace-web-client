@@ -54,7 +54,7 @@ const SolutionsSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'Poppins' }}>
             Complete Business Ecosystem
             <br />
             <span className="text-[#CE7A17]">at Your Fingertips</span>
@@ -136,7 +136,7 @@ const SolutionsSection = () => {
         <div className="text-center">
           <Button 
             className={`bg-[#CE7A17] hover:bg-[#172A3A] text-white px-8 py-3 font-semibold
-             text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-lg ${getAnimationClasses(isVisible, 'fadeInUp', 600)}`} style={{ fontFamily: 'instrument-serif' }}
+             text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-lg ${getAnimationClasses(isVisible, 'fadeInUp', 600)}`} style={{ fontFamily: 'Poppins' }}
           >
             View All Solutions
           </Button>
