@@ -89,7 +89,7 @@ const Header = () => {
           : "bg-transparent backdrop-blur-sm"
 
       )}
-      style={{ fontFamily: 'instrument-serif' }}
+      style={{ fontFamily: 'Josefin Sans' }}
     >
       <div className="container mx-auto px-4 py-3 ">
         <div className="flex items-center justify-between">
@@ -275,7 +275,7 @@ const Header = () => {
               onClick={() => handleNavigation("/login")}
               variant="outline"
               className="hidden lg:inline-flex px-4 py-2 text-md rounded-md font-bold transition-all duration-300 border-gray-300 text-black hover:bg-gray-50"
-              style={{ fontFamily: 'instrument-serif'  }}
+              style={{ fontFamily: 'Josefin Sans'  }}
             >
               Log in
             </Button>

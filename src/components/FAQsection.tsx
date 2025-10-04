@@ -102,21 +102,21 @@ const FAQSection = () => {
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'Josefin Sans' }}>
             <span className="text-[#172A3A]">Everything You Need to Know</span>
             <br />
-            <span className="text-[#CE7A17]">Frequently Asked Questions</span>
+            <span className="text-[#EDB003]">Frequently Asked Questions</span>
           </h2>
           <div className={`flex items-center justify-center gap-2 text-xl text-gray-600 max-w-3xl mx-auto ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
             <span>Get instant answers to the most common questions about our virtual office solutions and services.</span>
-            <Sparkles className="w-6 h-6 text-[#CE7A17] animate-pulse" />
+            <Sparkles className="w-6 h-6 text-[#EDB003] animate-pulse" />
           </div>
         </div>
 
         {/* Search and Filter */}
         <Card className={`bg-white border-2 border-gray-200 mb-12 shadow-md hover:shadow-xl transition-all duration-300 ${getAnimationClasses(isVisible, 'fadeInUp', 300)}`}>
           <CardHeader className="pb-4">
-            <CardTitle className="text-center text-[#172A3A] text-2xl" style={{ fontFamily: 'instrument-serif' }}>Find Your Answer</CardTitle>
+            <CardTitle className="text-center text-[#172A3A] text-2xl" style={{ fontFamily: 'Josefin Sans' }}>Find Your Answer</CardTitle>
           </CardHeader>
           <CardContent className="space-y-8">
             {/* Search Bar */}
@@ -125,7 +125,7 @@ const FAQSection = () => {
                 placeholder="Search for questions, topics, or keywords..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="py-3 bg-gray-50 border-2 border-gray-200 focus:border-[#CE7A17] rounded-xl text-lg"
+                className="py-3 bg-gray-50 border-2 border-gray-200 focus:border-[#EDB003] rounded-xl text-lg"
               />
             </div>
 
@@ -140,8 +140,8 @@ const FAQSection = () => {
                     className={`
                       group px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 justify-center
                       ${selectedCategory === category.key
-                        ? 'bg-[#CE7A17] text-white shadow-lg transform scale-105'
-                        : 'bg-white border-2 border-gray-200 text-gray-600 hover:border-[#CE7A17] hover:text-[#172A3A] hover:scale-105'
+                        ? 'bg-[#EDB003] text-white shadow-lg transform scale-105'
+                        : 'bg-white border-2 border-gray-200 text-gray-600 hover:border-[#EDB003] hover:text-[#172A3A] hover:scale-105'
                       }
                     `}
                   >
@@ -165,8 +165,8 @@ const FAQSection = () => {
                     value={faq.id}
                     className="border-b border-gray-200 last:border-b-0"
                   >
-                    <AccordionTrigger className="px-8 py-6 text-left hover:bg-gradient-to-r hover:from-[#CE7A17]/5 hover:to-transparent transition-all duration-300 group">
-                      <span className="font-semibold text-[#172A3A] pr-4 group-hover:text-[#CE7A17] transition-colors duration-300 text-lg">
+                    <AccordionTrigger className="px-8 py-6 text-left hover:bg-gradient-to-r hover:from-[#EDB003]/5 hover:to-transparent transition-all duration-300 group">
+                      <span className="font-semibold text-[#172A3A] pr-4 group-hover:text-[#EDB003] transition-colors duration-300 text-lg">
                         {faq.question}
                       </span>
                     </AccordionTrigger>
@@ -180,10 +180,10 @@ const FAQSection = () => {
               </Accordion>
             ) : (
               <div className="p-16 text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-[#172A3A]/15 to-[#CE7A17]/15 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-gradient-to-r from-[#172A3A]/15 to-[#EDB003]/15 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Search className="w-10 h-10 text-[#172A3A]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-[#172A3A]" style={{ fontFamily: 'instrument-serif' }}>No results found</h3>
+                <h3 className="text-xl font-semibold mb-4 text-[#172A3A]" style={{ fontFamily: 'Josefin Sans' }}>No results found</h3>
                 <p className="text-gray-600 text-lg">
                   Try adjusting your search terms or browse different categories.
                 </p>
@@ -200,7 +200,7 @@ const FAQSection = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href="#contact"
-              className="bg-[#CE7A17] hover:bg-[#172A3A] text-white px-8 py-4 rounded-xl font-semibold inline-block transition-all duration-300 hover:scale-105 shadow-lg"
+              className="bg-[#EDB003] hover:bg-[#172A3A] text-white px-8 py-4 rounded-xl font-semibold inline-block transition-all duration-300 hover:scale-105 shadow-lg"
             >
               Contact Support
             </a>

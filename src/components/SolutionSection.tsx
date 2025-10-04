@@ -54,10 +54,10 @@ const SolutionsSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 font-header ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'Josefin Sans' }}>
             Complete Business Ecosystem
             <br />
-            <span className="text-[#CE7A17]">at Your Fingertips</span>
+            <span className="text-[#EDB003]">at Your Fingertips</span>
           </h2>
           <p className={`text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-content font-geist ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
             Transform your business operations with our comprehensive suite of virtual office solutions 
@@ -75,26 +75,26 @@ const SolutionsSection = () => {
             >
               <Card 
                 className={`
-                  bg-white border-2 border-gray-200 hover:border-[#CE7A17] shadow-md hover:shadow-xl
+                  bg-white border-2 border-gray-200 hover:border-[#EDB003] shadow-md hover:shadow-xl
                   group cursor-pointer transition-all duration-500 hover:scale-105
                   relative overflow-hidden h-full flex flex-col rounded-xl ${getAnimationClasses(isVisible, 'fadeInUp', index * 150)}
                 `}
               >
                 {/* Dynamic Background Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#172A3A]/5 to-[#CE7A17]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute -top-10 -right-10 w-16 h-16 bg-[#CE7A17]/10 rounded-full blur-xl group-hover:bg-[#CE7A17]/20 transition-colors duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#172A3A]/5 to-[#EDB003]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute -top-10 -right-10 w-16 h-16 bg-[#EDB003]/10 rounded-full blur-xl group-hover:bg-[#EDB003]/20 transition-colors duration-500"></div>
                 <div className="absolute -bottom-10 -left-10 w-16 h-16 bg-[#172A3A]/10 rounded-full blur-xl group-hover:bg-[#172A3A]/20 transition-colors duration-500"></div>
 
                 <CardHeader className="space-y-4 p-5 relative z-10 flex-grow ">
                   <div className="flex items-center justify-center">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#172A3A]/15 to-[#CE7A17]/15 rounded-2xl flex items-center justify-center group-hover:from-[#172A3A]/25 group-hover:to-[#CE7A17]/25 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                      <span className="text-[#172A3A] group-hover:text-[#CE7A17] transition-colors duration-300">
+                    <div className="w-14 h-14 bg-gradient-to-br from-[#172A3A]/15 to-[#EDB003]/15 rounded-2xl flex items-center justify-center group-hover:from-[#172A3A]/25 group-hover:to-[#EDB003]/25 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                      <span className="text-[#172A3A] group-hover:text-[#EDB003] transition-colors duration-300">
                         {solution.icon}
                       </span>
                     </div>
                   </div>
                   <div className="text-center flex-grow flex flex-col">
-                    <CardTitle className="text-lg mb-2 text-[#172A3A] group-hover:text-[#CE7A17] transition-colors duration-300 font-bold font-header">
+                    <CardTitle className="text-lg mb-2 text-[#172A3A] group-hover:text-[#EDB003] transition-colors duration-300 font-bold font-header">
                       {solution.title}
                     </CardTitle>
                     <CardDescription className="text-gray-600 leading-snug text-sm font-content">
@@ -112,7 +112,7 @@ const SolutionsSection = () => {
                         className="flex items-center space-x-2 transform transition-all duration-300 group-hover:translate-x-1"
                         style={{ transitionDelay: `${featureIndex * 50}ms` }}
                       >
-                        <div className="w-1.5 h-1.5 bg-[#CE7A17] rounded-full group-hover:bg-[#172A3A] transition-colors duration-300 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-[#EDB003] rounded-full group-hover:bg-[#172A3A] transition-colors duration-300 flex-shrink-0"></div>
                         <span className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300 font-medium font-content text-xs">{feature}</span>
                       </div>
                     ))}
@@ -121,7 +121,7 @@ const SolutionsSection = () => {
                   {/* CTA Button */}
                     <Button 
                       variant="outline" 
-                      className="w-full border-2 border-[#172A3A] text-[#172A3A] hover:bg-[#CE7A17] hover:text-white hover:border-[#CE7A17] transition-all duration-300 py-2.5 font-semibold text-sm transform group-hover:scale-105 mt-auto"
+                      className="w-full border-2 border-[#172A3A] text-[#172A3A] hover:bg-[#EDB003] hover:text-white hover:border-[#EDB003] transition-all duration-300 py-2.5 font-semibold text-sm transform group-hover:scale-105 mt-auto"
                     >
                       Explore Now
                       <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
@@ -135,8 +135,8 @@ const SolutionsSection = () => {
         {/* Bottom CTA */}
         <div className="text-center">
           <Button 
-            className={`bg-[#CE7A17] hover:bg-[#172A3A] text-white px-8 py-3 font-semibold
-             text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-lg ${getAnimationClasses(isVisible, 'fadeInUp', 600)}`} style={{ fontFamily: 'instrument-serif' }}
+            className={`bg-[#EDB003] hover:bg-[#172A3A] text-white px-8 py-3 font-semibold
+             text-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-lg ${getAnimationClasses(isVisible, 'fadeInUp', 600)}`} style={{ fontFamily: 'Josefin Sans' }}
           >
             View All Solutions
           </Button>

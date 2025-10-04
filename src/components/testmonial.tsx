@@ -48,10 +48,10 @@ const TestimonialsSection = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'instrument-serif' }}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getAnimationClasses(isVisible, 'fadeInUp', 0)}`} style={{ fontFamily: 'Josefin Sans' }}>
             <span className="text-[#172A3A]">Trusted by Industry Leaders</span>
             <br />
-            <span className="text-[#CE7A17] text-2xl md:text-3xl">Across India</span>
+            <span className="text-[#EDB003] text-2xl md:text-3xl">Across India</span>
           </h2>
           <p className={`text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-content ${getAnimationClasses(isVisible, 'fadeInUp', 200)}`}>
             Join thousands of successful businesses who chose FlashSpace to accelerate their growth
@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
                   key={index}
                   className="flex-shrink-0 mx-6 flex items-center justify-center w-44 h-20"
                 >
-                  <div className="bg-white border-2 border-gray-200 p-4 w-full h-full flex items-center justify-center hover:shadow-xl transition-all duration-300 rounded-xl group hover:border-[#CE7A17] relative overflow-hidden">
+                  <div className="bg-white border-2 border-gray-200 p-4 w-full h-full flex items-center justify-center hover:shadow-xl transition-all duration-300 rounded-xl group hover:border-[#EDB003] relative overflow-hidden">
                     <img
                       src={company.logo}
                       alt={company.logo}
@@ -81,11 +81,11 @@ const TestimonialsSection = () => {
                       onError={(e) => {
                         // Fallback to text if image fails to load
                         e.currentTarget.style.display = 'none';
-                        e.currentTarget.parentElement!.innerHTML = `<span class=\"text-sm font-bold text-[#172A3A] group-hover:text-[#CE7A17] tracking-wider transition-colors duration-300 text-center\">${company.name}</span>`;
+                        e.currentTarget.parentElement!.innerHTML = `<span class=\"text-sm font-bold text-[#172A3A] group-hover:text-[#EDB003] tracking-wider transition-colors duration-300 text-center\">${company.name}</span>`;
                       }}
                     />
                     {/* Subtle corner accent */}
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-[#CE7A17]/20 rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-[#EDB003]/20 rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
               ))}
@@ -95,8 +95,8 @@ const TestimonialsSection = () => {
 
         {/* Client Testimonials */}
         <div className="text-center mb-8 mt-16">
-          <h3 className={`text-2xl md:text-7xl font-black mb-4 text-[#172A3A] ${getAnimationClasses(isVisible, 'fadeInUp', 400)}`} style={{ fontFamily: 'instrument-serif' }}>
-            Great People <span className="text-[#CE7A17]">Trust Us</span>
+          <h3 className={`text-2xl md:text-7xl font-black mb-4 text-[#172A3A] ${getAnimationClasses(isVisible, 'fadeInUp', 400)}`} style={{ fontFamily: 'Josefin Sans' }}>
+            Great People <span className="text-[#EDB003]">Trust Us</span>
           </h3>
           <p className={`text-gray-600 font-content ${getAnimationClasses(isVisible, 'fadeInUp', 500)}`}>
             Real stories from real businesses who transformed their operations with FlashSpace
@@ -107,11 +107,11 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className={`bg-white shadow-md hover:shadow-xl hover:scale-105 border-2 border-gray-200 hover:border-[#CE7A17] transition-all duration-500 ${getAnimationClasses(isVisible, 'fadeInUp', 600 + index * 100)}`}
+              className={`bg-white shadow-md hover:shadow-xl hover:scale-105 border-2 border-gray-200 hover:border-[#EDB003] transition-all duration-500 ${getAnimationClasses(isVisible, 'fadeInUp', 600 + index * 100)}`}
             >
               <CardContent className="p-6">
                 {/* Quote */}
-                <div className="text-6xl text-[#CE7A17]/20 mb-4 font-serif">"</div>
+                <div className="text-6xl text-[#EDB003]/20 mb-4 font-serif">"</div>
                 <p className="text-gray-600 leading-relaxed mb-4 font-content">
                   {testimonial.text}
                 </p>
@@ -119,7 +119,7 @@ const TestimonialsSection = () => {
                 {/* Author Info */}
                 <div className="border-t border-gray-200 pt-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#172A3A]/15 to-[#CE7A17]/15 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#172A3A]/15 to-[#EDB003]/15 rounded-full flex items-center justify-center">
                       <span className="text-[#172A3A] font-bold text-lg">
                         {testimonial.author.split(' ').map(name => name[0]).join('')}
                       </span>
@@ -127,7 +127,7 @@ const TestimonialsSection = () => {
                     <div>
                       <div className="font-semibold text-[#172A3A] font-content">{testimonial.author}</div>
                       <div className="text-sm text-gray-600 font-content">{testimonial.position}</div>
-                      <div className="text-sm text-[#CE7A17] font-content">{testimonial.company}</div>
+                      <div className="text-sm text-[#EDB003] font-content">{testimonial.company}</div>
                     </div>
                   </div>
                 </div>
@@ -141,27 +141,27 @@ const TestimonialsSection = () => {
             <CardContent className="p-8">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>5000+</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#EDB003] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Josefin Sans' }}>5000+</div>
                 <div className="text-gray-600 font-content text-sm">Happy Clients</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>100+</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#EDB003] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Josefin Sans' }}>100+</div>
                 <div className="text-gray-600 font-content text-sm">Cities Covered</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>24/7</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#EDB003] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Josefin Sans' }}>24/7</div>
                 <div className="text-gray-600 font-content text-sm">Support Available</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>10K+</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#EDB003] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Josefin Sans' }}>10K+</div>
                 <div className="text-gray-600 font-content text-sm">Registrations Done</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>98%</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#EDB003] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Josefin Sans' }}>98%</div>
                 <div className="text-gray-600 font-content text-sm">Satisfaction Rate</div>
               </div>
               <div className="group">
-                <div className="text-3xl md:text-4xl font-bold text-[#CE7A17] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'instrument-serif' }}>&lt;2min</div>
+                <div className="text-3xl md:text-4xl font-bold text-[#EDB003] mb-2 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Josefin Sans' }}>&lt;2min</div>
                 <div className="text-gray-600 font-content text-sm">Avg Response Time</div>
               </div>
             </div>

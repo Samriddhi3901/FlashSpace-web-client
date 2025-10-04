@@ -66,11 +66,19 @@ const Footer = () => {
           {/* Company Info */}
           <div className={`space-y-6 ${getAnimationClasses(isVisible, 'slideUp', 0)}`}>
             <div className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/6295cecd-7c61-4f7d-b1eb-3062cb798cce.png" 
+              <img
+                src="/lovable-uploads/6295cecd-7c61-4f7d-b1eb-3062cb798cce.png"
                 alt="FlashSpace Logo"
-                className="h-10 w-auto"
+                className="h-12 w-auto"
               />
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Josefin Sans' }}>
+                  FlashSpace
+                </span>
+                <span className="text-xs text-yellow-600 font-semibold">
+                  VirtuHub Connect
+                </span>
+              </div>
             </div>
             
             <p className="text-gray-600 leading-relaxed font-content text-sm">

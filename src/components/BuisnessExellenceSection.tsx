@@ -54,8 +54,8 @@ const BusinessExcellenceSection = () => {
       <div className="container mx-auto relative z-10 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#172A3A]" style={{ fontFamily: 'instrument-serif' }}>
-            Why Choose <span className="text-[#CE7A17]">FlashSpace</span>?
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#172A3A]" style={{ fontFamily: 'Josefin Sans' }}>
+            Why Choose <span className="text-[#EDB003]">FlashSpace</span>?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             India's most trusted workspace solution with premium quality and service
@@ -98,7 +98,7 @@ const BusinessExcellenceSection = () => {
 
                   <div className="px-8 pb-8 flex flex-col flex-grow">
                     {/* Title */}
-                    <h3 className="text-2xl font-bold text-[#172A3A] mb-4" style={{ fontFamily: 'instrument-serif' }}>
+                    <h3 className="text-2xl font-bold text-[#172A3A] mb-4" style={{ fontFamily: 'Josefin Sans' }}>
                       {reason.title}
                     </h3>
 
@@ -108,7 +108,7 @@ const BusinessExcellenceSection = () => {
                     </p>
 
                     {/* Learn More Link */}
-                    <button className="text-[#172A3A] text-left underline hover:text-[#CE7A17] transition-colors duration-300 mt-auto">
+                    <button className="text-[#172A3A] text-left underline hover:text-[#EDB003] transition-colors duration-300 mt-auto">
                       Learn More →
                     </button>
                   </div>
@@ -121,9 +121,9 @@ const BusinessExcellenceSection = () => {
         {/* Bottom Badge */}
         <div className="text-center mt-16">
           <div className="inline-flex items-center gap-3 px-8 py-4 bg-white rounded-full shadow-lg border-2 border-gray-200">
-            <CheckCircle className="w-5 h-5 text-[#CE7A17]" />
-            <span className="text-[#172A3A] font-semibold text-xl" style={{ fontFamily: 'instrument-serif' }}>
-              Trusted by <span className="text-[#CE7A17]">10,000+</span> businesses across India
+            <CheckCircle className="w-5 h-5 text-[#EDB003]" />
+            <span className="text-[#172A3A] font-semibold text-xl" style={{ fontFamily: 'Josefin Sans' }}>
+              Trusted by <span className="text-[#EDB003]">10,000+</span> businesses across India
             </span>
           </div>
         </div>

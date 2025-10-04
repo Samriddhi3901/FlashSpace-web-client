@@ -53,11 +53,7 @@
   src: url("./assets//fonts/Poppins-Regular.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: 'instrument-serif';
-  src: url('./assets/fonts/InstrumentSerif-Regular.ttf') format('woff2'),
-       url('./assets/fonts/InstrumentSerif-Regular.ttf') format('truetype');
-}
+/* PT Serif is loaded from Google Fonts */
 /* Removed Locomotive Scroll overrides */
 
 /* VirtuHub Connect Design System - FlashSpace Branding */
@@ -190,7 +186,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: 'Geist', 'Inter', 'system-ui', sans-serif;
+    font-family: 'PT Serif', 'Georgia', 'serif';
     background: hsl(var(--background));
     min-height: 100vh;
   }
@@ -365,10 +361,65 @@
 }
 
 @keyframes gentle-bounce {
-  0%, 100% { 
-    transform: translateY(0px); 
+  0%, 100% {
+    transform: translateY(0px);
   }
-  50% { 
-    transform: translateY(-8px); 
+  50% {
+    transform: translateY(-8px);
   }
+}
+
+/* Hero Section Animations */
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 40px rgba(251, 191, 36, 0.4), 0 0 80px rgba(251, 191, 36, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 60px rgba(251, 191, 36, 0.6), 0 0 100px rgba(251, 191, 36, 0.3);
+  }
+}
+
+@keyframes card-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+.animate-text-glow {
+  animation: text-glow 3s ease-in-out infinite;
+}
+
+.animate-card-float {
+  animation: card-float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
 }
