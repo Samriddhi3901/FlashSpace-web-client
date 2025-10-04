@@ -65,20 +65,12 @@ const Footer = () => {
         <div className="py-12 grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className={`space-y-6 ${getAnimationClasses(isVisible, 'slideUp', 0)}`}>
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center">
               <img
-                src="/lovable-uploads/6295cecd-7c61-4f7d-b1eb-3062cb798cce.png"
+                src="https://cdn.prod.website-files.com/664330484432dcdd6519a8fd/665dd8e0007de68a44f3750b_Black%20and%20White%20Bold%20Typography%20Clothing%20Brand%20Logo%20(940%20x%20400%20px)%20(940%20x%20200%20px)%20(940%20x%20150%20px).png"
                 alt="FlashSpace Logo"
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Josefin Sans' }}>
-                  FlashSpace
-                </span>
-                <span className="text-xs text-yellow-600 font-semibold">
-                  VirtuHub Connect
-                </span>
-              </div>
             </div>
             
             <p className="text-gray-600 leading-relaxed font-content text-sm">
